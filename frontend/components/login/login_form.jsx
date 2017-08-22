@@ -33,9 +33,9 @@ class LoginForm extends React.Component {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>
-              {error}
-            </li>
+          <li key={`error-${i}`}>
+            {error}
+          </li>
         ))}
       </ul>
     );
@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
             </label>
             <br/>
             <label>Password:
-              <input type="text"
+              <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"

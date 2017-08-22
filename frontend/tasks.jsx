@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Root from './components/root';
 import configureStore from './store/store';
+import { signup, login, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const store = configureStore();
-
+  let store;
+  if (window.currentUser) {
+    const preloadedState = { session: { currentUser: window.currentUser } };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
   //TEST
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.logout = logout;
   //TEST END
 
-  ReactDOM.render(<h1>Welcome to Tasks</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
