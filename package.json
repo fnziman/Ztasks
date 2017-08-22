@@ -23,7 +23,12 @@
   },
   "devDependencies": {},
   "scripts": {
+    "postinstall": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
   },
   "repository": {
     "type": "git",
