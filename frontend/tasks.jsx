@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as APIUtil from './util/session_api_util';
+import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
+  const store = configureStore();
 
   //TEST
-  window.signup = APIUtil.signup;
-  window.login = APIUtil.login;
-  window.logout = APIUtil.logout;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   //TEST END
 
   ReactDOM.render(<h1>Welcome to Tasks</h1>, root);
