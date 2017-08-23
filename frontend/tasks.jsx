@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+// testing
 import * as APIUtil from './util/lists_util';
+import { fetchLists } from './actions/list_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -19,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   // window.createList = APIUtil.createList;
   // window.fetchList = APIUtil.fetchList;
-  window.fetchLists = APIUtil.fetchLists;
+  window.fetchLists = fetchLists;
   // window.deleteList = APIUtil.deleteList;
   //TEST END
 
