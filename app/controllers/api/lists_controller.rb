@@ -2,6 +2,7 @@ class Api::ListsController < ApplicationController
   before_action :require_logged_in
   def create
     @list = List.new(list_params)
+    @list.user = currentUser
 
     if @list.save
       render :show

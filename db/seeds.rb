@@ -6,10 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
-User.create!(
+demo_user = User.new(
   username: "demo_login",
   first_name: "Demo",
   last_name: "Login",
   email: "demo@login.com",
   password: "demopassword"
 )
+demo_user.save!
+
+List.delete_all
+personal = List.new(title: "Personal", user_id: demo_user.id)
+work = List.new(title: "Work", user_id: demo_user.id)
+personal.save!
+work.save!
