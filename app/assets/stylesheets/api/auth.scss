@@ -4,6 +4,9 @@
 
 .container {
   display: flex;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
 }
 .blue {
   background-color: #0060bf;
@@ -41,13 +44,12 @@
 .signup-form-box, .login-form-box {
   padding: 15px 50px 0;
   width: 400px;
-
+  height: 100vh;
 }
 .signup-form, .login-form {
   width: 100%;
 }
 .signup-input, .login-input {
-  // opacity: .5;
   height: 26px;
   padding: 10px;
   border: 1px solid #aaa;
@@ -65,10 +67,9 @@
   font-size: 24px;
   width: 400px;
   margin: 5px;
-  height: 26px;
+  height: 48px;
   padding: 10px;
   border-radius: 4px;
   color: white;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
-
 }

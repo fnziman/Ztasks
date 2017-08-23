@@ -10,7 +10,6 @@ class Greeting extends React.Component {
           <Link className="greeting-buttons" to="/login">Log in</Link>
           <Link className="greeting-buttons" to="/signup">Sign up for free</Link>
         </header>
-        <br/>
         <div className="greeting-blue">
           <h1>The smart to-do app for busy people.</h1>
           <br/>
