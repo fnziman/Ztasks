@@ -26,7 +26,7 @@ export const fetchLists = () => {
 //     data: list,
 //   });
 // };
-// 
+//
 // export const deleteList = (listId) => {
 //   return $.ajax({
 //     url: `/api/lists/${listId}`,
