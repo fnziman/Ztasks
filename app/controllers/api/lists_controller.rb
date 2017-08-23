@@ -2,8 +2,7 @@ class Api::ListsController < ApplicationController
   before_action :require_logged_in
   def create
     @list = List.new(list_params)
-    @list.user = currentUser
-
+    @list.user = current_user
     if @list.save
       render :show
     else
@@ -29,6 +28,6 @@ class Api::ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).pemit(:title)
+    params.require(:list).permit(:title)
   end
 end

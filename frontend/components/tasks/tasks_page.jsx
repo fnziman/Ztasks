@@ -1,5 +1,6 @@
 import React from 'react';
 import ListIndexContainer from '../lists/list_index_container';
+import ListFormContiner from '../lists/list_form_container';
 
 class TasksPage extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class TasksPage extends React.Component {
       <div>
         <button onClick={this.handleLogout}>Logout</button>
         <ListIndexContainer />
+        <ListFormContiner />
       </div>
     );
   }

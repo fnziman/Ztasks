@@ -5,6 +5,11 @@ class ListIndex extends React.Component {
   componentDidMount() {
     this.props.fetchLists();
   }
+  componentWillReceiveProps(nextProps) { //rigged this....
+    if (this.props.lists.length !== nextProps.lists.length) {
+      this.props.fetchLists();
+    }
+  }
 
   render() {
     const lists = this.props.lists.map(list => {
