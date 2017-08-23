@@ -1,0 +1,47 @@
+.greeting-container {
+  display: inline-block;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+}
+header {
+  width: 100%;
+  background-color: #0060bf;
+  border-bottom: 1px solid lightgrey;
+  height: 114px;
+  display: flex;
+  align-content: center;
+}
+.greeting-buttons{
+  font-size: 18px;
+  color: white;
+  background-color: inherit;
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  align-self: flex-end;
+}
+
+.greeting-blue {
+  background-color: #0060bf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+}
+.greeting-signup-button {
+  font-size: 24px;
+  color: white;
+  background-color: #d24b03;
+  text-align: center;
+  padding: 10px 20px 10px 20px;
+  border-radius: 4px;
+
+}
+.greeting-blue h1 {
+  color: white;
+  text-align: center;
+  font-size: 36px;
+  padding: 10px;
+}

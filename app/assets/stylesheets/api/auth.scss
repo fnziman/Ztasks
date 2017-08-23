@@ -1,0 +1,74 @@
+// Place all the styles related to the api/sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  display: flex;
+}
+.blue {
+  background-color: #0060bf;
+  width: 50%;
+}
+.link-button {
+  display: block;
+  float: right;
+  text-align: center;
+  background-color: lightblue;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 100px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+.signup-form-container, .login-form-container {
+  display: inline;
+  width: 50%;
+
+}
+.signup-form-container h1 {
+  display: inline-block;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 20px;
+  padding-bottom: 20px;
+  margin-top: 100px;
+}
+.login-form-container h1 {
+  display: inline-block;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 20px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+.signup-form-box, .login-form-box {
+  padding: 15px 50px 0;
+  width: 400px;
+
+}
+.signup-form, .login-form {
+  width: 100%;
+}
+.signup-input, .login-input {
+  // opacity: .5;
+  height: 26px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  font-size: 24px;
+  margin: 5px;
+  width: 378px;
+  font-weight: 50;
+  border-radius: 4px;
+  font-family: arial;
+
+}
+.signup-button, .login-button {
+  background-color: #009dff;
+  text-align: center;
+  font-size: 24px;
+  width: 400px;
+  margin: 5px;
+  height: 26px;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+}

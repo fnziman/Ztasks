@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -46,60 +46,64 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit} className="signup-form-box">
-          Sign up for free.
+      <div className="container">
+        <section className="blue"/>
+        <div className="signup-form-container">
           <br/>
-          {this.errors()}
-          <div className="signup-form">
-            <label>
-              <input type="text"
-                value={this.state.first_name}
-                onChange={this.update('first_name')}
-                className="signup-input"
-                placeholder="First Name"
-                />
-            </label>
-            <br/>
-            <label>
-              <input type="text"
-                value={this.state.last_name}
-                onChange={this.update('last_name')}
-                className="signup-input"
-                placeholder="Last Name"
-                />
-            </label>
-            <br/>
-            <label>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="signup-input"
-                placeholder="Email"
-                />
-            </label>
-            <br/>
-            <label>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="signup-input"
-                placeholder="Username"
-                />
-            </label>
-            <br/>
-            <label>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="signup-input"
-                placeholder="Password"
-                />
-            </label>
-            <br/>
-            <input type="submit" value="Sign Up!" />
-          </div>
-        </form>
+          <form onSubmit={this.handleSubmit} className="signup-form-box">
+            <Link className="link-button" to="/login">Log in</Link>
+            <h1>Sign up for free.</h1>
+            {this.errors()}
+            <div className="signup-form">
+              <label>
+                <input type="text"
+                  value={this.state.first_name}
+                  onChange={this.update('first_name')}
+                  className="signup-input"
+                  placeholder="First Name"
+                  />
+              </label>
+              <br/>
+              <label>
+                <input type="text"
+                  value={this.state.last_name}
+                  onChange={this.update('last_name')}
+                  className="signup-input"
+                  placeholder="Last Name"
+                  />
+              </label>
+              <br/>
+              <label>
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  className="signup-input"
+                  placeholder="Email"
+                  />
+              </label>
+              <br/>
+              <label>
+                <input type="text"
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                  className="signup-input"
+                  placeholder="Username"
+                  />
+              </label>
+              <br/>
+              <label>
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="signup-input"
+                  placeholder="Password"
+                  />
+              </label>
+              <br/>
+              <input className="signup-button" type="submit" value="Sign Up!" />
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

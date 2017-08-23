@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -43,34 +43,37 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Been here before? Welcome Back!
+      <div className="container">
+        <section className="blue"/>
+        <div className="login-form-container">
           <br/>
-          Login
-          {this.errors()}
-          <div className="login-form">
-            <label>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-input"
-                placeholder="Username"
-                />
-            </label>
-            <br/>
-            <label>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-                placeholder="Password"
-                />
-            </label>
-            <br/>
-            <input type="submit" value="Log in" />
-          </div>
-        </form>
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            <Link className="link-button" to="/signup">Sign up for free</Link>
+            <h1>Been here before? Welcome Back!</h1>
+            {this.errors()}
+            <div className="login-form">
+              <label>
+                <input type="text"
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                  className="login-input"
+                  placeholder="Username"
+                  />
+              </label>
+              <br/>
+              <label>
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                  placeholder="Password"
+                  />
+              </label>
+              <br/>
+              <input className="login-button" type="submit" value="Log in" />
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
