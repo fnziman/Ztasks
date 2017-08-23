@@ -72,26 +72,24 @@
   border-radius: 4px;
   color: white;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
+  cursor: pointer;
 }
 .demo-login {
   background-color: #009dff;
   text-align: center;
   font-size: 24px;
-  width: 380px;
-  height: 28px;
+  width: 400px;
+  height: 48px;
   padding: 10px;
   margin: 5px;
   border-radius: 4px;
   color: white;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
+  cursor: pointer;
 }
-// .or {
-//   width:
-//   font-family: "Comic Sans MS", "Comic Sans", cursive;
-//   text-decoration: line-through;
-// }
 .errors li {
+  margin-bottom: 5px;
+  padding-left: 2px;
   font-size: 16px;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
-
 }

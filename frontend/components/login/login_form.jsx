@@ -11,10 +11,13 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
   }
+  componentWillMount() {
+    this.props.clearErrors();
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      this.props.history.push('/');  //where do i want this to be going?
+      this.props.history.push('/app');
     }
   }
 
@@ -46,6 +49,7 @@ class LoginForm extends React.Component {
     );
   }
 
+
   render() {
     return (
       <div className="container">
@@ -54,7 +58,7 @@ class LoginForm extends React.Component {
           <br/>
           <div className="login-form-box">
             <form onSubmit={this.handleSubmit}>
-              <Link className="link-button" to="/signup">Sign up for free</Link>
+              <Link className="link-button" onClick={this.clearErrors} to="/signup">Sign up for free</Link>
               <h1>Been here before? Welcome Back!</h1>
               {this.errors()}
               <div className="login-form">
@@ -80,7 +84,7 @@ class LoginForm extends React.Component {
               </div>
             </form>
             <br />
-            <input className="demo-login" onClick={this.demoLogin} value="Demo Login" />
+            <input type="button" className="demo-login" onClick={this.demoLogin} value="Demo Login"/>
           </div>
         </div>
       </div>

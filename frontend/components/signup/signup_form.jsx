@@ -14,9 +14,13 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      this.props.history.push('/');  //where do i want this to be going?
+      this.props.history.push('/app');
     }
   }
 
@@ -34,7 +38,7 @@ class SignupForm extends React.Component {
 
   errors() {
     return (
-      <ul>
+      <ul className="errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
