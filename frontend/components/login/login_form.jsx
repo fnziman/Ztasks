@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,9 +30,13 @@ class LoginForm extends React.Component {
     this.props.login({ user });
   }
 
+  demoLogin() {
+    this.props.login({user: {username:'demo_login', password:'demopassword'}});
+  }
+
   errors() {
     return (
-      <ul>
+      <ul className="errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -47,32 +52,36 @@ class LoginForm extends React.Component {
         <section className="blue"/>
         <div className="login-form-container">
           <br/>
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            <Link className="link-button" to="/signup">Sign up for free</Link>
-            <h1>Been here before? Welcome Back!</h1>
-            {this.errors()}
-            <div className="login-form">
-              <label>
-                <input type="text"
-                  value={this.state.username}
-                  onChange={this.update('username')}
-                  className="login-input"
-                  placeholder="Username"
-                  />
-              </label>
-              <br/>
-              <label>
-                <input type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  className="login-input"
-                  placeholder="Password"
-                  />
-              </label>
-              <br/>
-              <input className="login-button" type="submit" value="Log in" />
-            </div>
-          </form>
+          <div className="login-form-box">
+            <form onSubmit={this.handleSubmit}>
+              <Link className="link-button" to="/signup">Sign up for free</Link>
+              <h1>Been here before? Welcome Back!</h1>
+              {this.errors()}
+              <div className="login-form">
+                <label>
+                  <input type="text"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    className="login-input"
+                    placeholder="Username"
+                    />
+                </label>
+                <br/>
+                <label>
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className="login-input"
+                    placeholder="Password"
+                    />
+                </label>
+                <br/>
+                <input className="login-button" type="submit" value="Log in" />
+              </div>
+            </form>
+            <br />
+            <input className="demo-login" onClick={this.demoLogin} value="Demo Login" />
+          </div>
         </div>
       </div>
     );

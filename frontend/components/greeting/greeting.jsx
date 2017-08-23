@@ -7,8 +7,10 @@ class Greeting extends React.Component {
     return (
       <div className="greeting-container">
         <header>
-          <Link className="greeting-buttons" to="/login">Log in</Link>
-          <Link className="greeting-buttons" to="/signup">Sign up for free</Link>
+          <div className="greeting-buttons">
+            <Link className="greeting-button" to="/login">Log in</Link>
+            <Link className="greeting-button" to="/signup">Sign up for free</Link>
+          </div>
         </header>
         <div className="greeting-blue">
           <h1>The smart to-do app for busy people.</h1>

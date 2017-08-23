@@ -12,14 +12,18 @@ header {
   background-color: #0060bf;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
   height: 114px;
+  padding: 0 20px;
 }
-.greeting-buttons{
+.greeting-buttons {
+  padding-right: 10%;
+}
+.greeting-button {
   font-size: 16px;
   font-weight: 100;
   color: white;
   background-color: inherit;
   padding: 5px;
-  margin: 5px;
+  margin: 10px;
   border-radius: 4px;
 }
 
@@ -38,7 +42,7 @@ header {
   background-color: #d24b03;
   text-align: center;
   padding: 10px 20px 10px 20px;
-  border-radius: 4px;
+  border-radius: 3px;
 
 }
 .greeting-blue h1 {
@@ -46,4 +50,5 @@ header {
   text-align: center;
   font-size: 36px;
   padding: 10px;
+  margin: 30px;
 }
