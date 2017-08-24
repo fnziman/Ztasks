@@ -1,0 +1,66 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  width: 100vw;
+  height: 40px;
+  background-color: #0060bf;
+  padding: 0 20px;
+}
+.right-header-container, .left-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgba(255,255,255,0.7);
+  height: 100%;
+  font-family: 'Material Icons';
+  font-size: 24px;
+  font-weight: lighter;
+  font-style: normal;
+  text-transform: none;
+}
+.left-header-container {
+  justify-content: flex-start;
+  margin-right: 156px;
+}
+.right-header-container {
+  width: 100%;
+  justify-content: space-between;
+  margin-right: 40px;
+}
+.menu {
+  align-self: center;
+  cursor: pointer;
+}
+.searchbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(51, 128, 204);
+  border-radius: 3px;
+  padding: 0 5px;
+  height: 30px;
+  width: 294px;
+  cursor: text;
+}
+.searchbar input {
+  background-color: transparent;
+  border-radius: 3px;
+  height: 30px;
+  width: 100%;
+  cursor: default;
+}
+.settings {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.arrow {
+  font-size: 17px;
+  align-self: center;
+}
+.settings:hover {
+
+}

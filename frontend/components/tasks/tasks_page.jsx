@@ -1,20 +1,13 @@
 import React from 'react';
-import ListIndexContainer from '../lists/list_index_container';
+import HeaderContainer from '../header/header_container';
+import Sidebar from '../sidebar/sidebar';
 
 class TasksPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-  handleLogout() {
-    this.props.logout(this.props.currentUser);
-  }
   render() {
     return(
-      <div>
-        <button onClick={this.handleLogout}>Logout</button>
-        <ListIndexContainer />
+      <div className="tasks-page">
+        <HeaderContainer />
+        <Sidebar />
       </div>
     );
   }

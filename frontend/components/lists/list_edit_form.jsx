@@ -1,5 +1,5 @@
 import React from 'react';
-
+//this will be a modul
 class ListEditForm extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +27,7 @@ class ListEditForm extends React.Component {
   render() {
     return (
       <div className="list-edit-form">
+        <span className="close-button">&times;</span>
         <h1>Rename list</h1>
         <form onSubmit={this.handleSubmit} >
           <label>List name:
@@ -34,7 +35,7 @@ class ListEditForm extends React.Component {
             <input type="text" onChange={this.updateTitle} value={this.state.title} />
           </label>
           <br/>
-          <input type="submit" value="Save" />
+          <input className="save-button" type="submit" value="Save" />
           <input className="cancel-button" defaultValue="Cancel" />
         </form>
       </div>

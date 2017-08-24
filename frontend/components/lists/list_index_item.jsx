@@ -14,11 +14,8 @@ class ListIndexItem extends React.Component {
 
   render() {
     return (
-      <container>
+      <container className="list-index-item">
         <div className="list-title">{this.props.list.title}</div>
-        <ListEditForm className="list-edit-form"
-          list={this.props.list}
-          edit={this.props.edit} />
         <input type="button" onClick={this.handleDelete} value="Delete" />
       </container>
     );

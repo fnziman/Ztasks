@@ -28,15 +28,18 @@ class ListForm extends React.Component {
   render() {
     return (
       <div className="list-form">
+        <span className="close-button">&times;</span>
         <h1>Add a list</h1>
         <form onSubmit={this.handleSubmit} >
           <label>Please enter a new list name:
             <br/>
-            <input type="text" onChange={this.updateTitle} value={this.state.title} />
+            <input className="input-text" type="text" onChange={this.updateTitle} value={this.state.title} />
           </label>
             <br/>
-            <input type="submit" value="Add" />
-            <input className="cancel-button" defaultValue="Cancel" />
+            <container className="buttons">
+              <input className="add-button" type="submit" value="Add" />
+              <input className="cancel-button" value="Cancel" />
+            </container>
         </form>
       </div>
     );
