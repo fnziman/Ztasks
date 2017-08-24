@@ -5,12 +5,12 @@ export const createList = (list) => {
     data: list,
   });
 };
-// export const fetchList = (listId) => {
-//   return $.ajax({
-//     url: `/api/lists/${listId}`,
-//     method: "GET",
-//   });
-// };
+export const fetchSingleList = (listId) => {
+  return $.ajax({
+    url: `/api/lists/${listId}`,
+    method: "GET",
+  });
+};
 
 export const fetchLists = () => {
   return $.ajax({
@@ -19,17 +19,17 @@ export const fetchLists = () => {
   });
 };
 
-// export const editList = (list) => {
-//   return $.ajax({
-//     url: "/api/lists",
-//     method: "PATCH",
-//     data: list,
-//   });
-// };
-//
-// export const deleteList = (listId) => {
-//   return $.ajax({
-//     url: `/api/lists/${listId}`,
-//     method: "DELETE",
-//   });
-// };
+export const editList = (list) => {
+  return $.ajax({
+    url: `/api/lists/${list.list.id}`,
+    method: "PATCH",
+    data: list,
+  });
+};
+
+export const deleteList = (listId) => {
+  return $.ajax({
+    url: `/api/lists/${listId}`,
+    method: "DELETE",
+  });
+};
