@@ -1,6 +1,5 @@
 import React from 'react';
 import ListIndexItem from './list_index_item';
-import ListEditForm from './list_edit_form';
 
 class ListIndex extends React.Component {
 
@@ -15,8 +14,11 @@ class ListIndex extends React.Component {
         <ListIndexItem
           key={list.id}
           list={list}
+          ui={this.props.ui}
+          setCurrentList={this.props.setCurrentList}
           editForm={this.props.editForm}
           editList={this.props.editList}
+          listsDropDown={this.props.listsDropDown}
           clearUi={this.props.clearUi}
           deleteList={this.props.deleteList} />
       );

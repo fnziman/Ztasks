@@ -25,7 +25,7 @@ class ListForm extends React.Component {
     const list = this.state;
     this.setState({ title: '' });
     this.props.clearUi();
-    this.props.createList({ list: list });
+    this.props.createList( list );
   }
 
   render() {

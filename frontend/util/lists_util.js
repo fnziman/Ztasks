@@ -2,7 +2,7 @@ export const createList = (list) => {
   return $.ajax({
     url: "/api/lists",
     method: "POST",
-    data: list,
+    data: { list },
   });
 };
 export const fetchSingleList = (listId) => {
@@ -21,9 +21,9 @@ export const fetchLists = () => {
 
 export const editList = (list) => {
   return $.ajax({
-    url: `/api/lists/${list.list.id}`,
+    url: `/api/lists/${list.id}`,
     method: "PATCH",
-    data: list,
+    data: { list },
   });
 };
 

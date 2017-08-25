@@ -5,6 +5,7 @@ import { createForm,
          createList,
          editForm,
          editList,
+         clearCurrentList,
          deleteList,
          listsDropDown,
          settingsDropdown,
@@ -13,6 +14,7 @@ import { createForm,
 const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
+    currentList: state.currentList,
     ui: state.ui,
   };
 };
@@ -24,6 +26,7 @@ const mapDispatchToProps = (dispatch) => {
     createList: (list) => dispatch(createList(list)),
     editForm: () => dispatch(editForm()),
     editList: listId => dispatch(editList(listId)),
+    clearCurrentList: () => dispatch(clearCurrentList()),
     deleteList: listId => dispatch(deleteList(listId)),
     listsDropDown: () => dispatch(listsDropDown()),
     settingsDropdown: () => dispatch(settingsDropdown()),

@@ -1,13 +1,13 @@
 import React from 'react';
-//this will be a modul
+
 class ListEditForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state={
-      id: this.props.list.id,
-      title: this.props.list.title,
-      user_id: this.props.list.user_id
+      id: this.props.currentList.id,
+      title: this.props.currentList.title,
+      user_id: this.props.currentList.user_id
     };
 
     this.close = this.close.bind(this);
@@ -16,6 +16,7 @@ class ListEditForm extends React.Component {
   }
   close() {
     this.props.clearUi();
+    this.props.clearCurrentList();
   }
 
   updateTitle(e) {
@@ -25,8 +26,9 @@ class ListEditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const list = this.state;
+    this.props.editList( list );
     this.props.clearUi();
-    this.props.editList({ list: list });
+    this.props.clearCurrentList();
   }
 
   render() {

@@ -22,7 +22,8 @@ class MainPage extends React.Component {
           currentUser={this.props.currentUser} />;
       case "edit":
         return <ListEditForm className="list-edit-form"
-          list={this.props.list}
+          currentList={this.props.currentList}
+          clearCurrentList={this.props.clearCurrentList}
           clearUi={this.props.clearUi}
           editList={this.props.editList} />;
       default:

@@ -5,19 +5,26 @@ class ListIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state={ dropdown: false };
 
+    this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.toggleDrop = this.toggleDrop.bind(this);
   }
-
+  handleEdit() {
+    this.props.setCurrentList(this.props.list);
+    this.props.editForm();
+  }
   handleDelete() {
     this.props.deleteList(this.props.list.id);
+    this.props.clearUi();
   }
 
   toggleDrop() {
-    const next = !this.state.dropdown;
-    this.setState({ dropdown: next });
+    if (this.props.ui === "lists") {
+      this.props.clearUi();
+    } else {
+      this.props.listsDropDown();
+    }
   }
 
 
@@ -27,8 +34,8 @@ class ListIndexItem extends React.Component {
       <div className="list-index-item">
         <span className="list-title">{this.props.list.title}</span>
         <i onClick={this.toggleDrop} className="arrow list-arrow">arrow_drop_down</i>
-        <container className={this.state.dropdown ? "lists-dropdown view" : "lists-dropdown hidden"}>
-          <p onClick={this.props.editForm}>Rename list</p>
+        <container className={(this.props.ui === "lists") ? "lists-dropdown view" : "lists-dropdown hidden"}>
+          <p onClick={this.handleEdit}>Rename list</p>
           <p onClick={this.handleDelete}>Remove list</p>
         </container>
       </div>
