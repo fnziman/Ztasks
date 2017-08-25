@@ -15,12 +15,6 @@ class LoginForm extends React.Component {
     this.props.clearErrors();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.history.push('/app');
-    }
-  }
-
   update(property) {
     return e => this.setState({
       [property]: e.currentTarget.value
@@ -38,15 +32,17 @@ class LoginForm extends React.Component {
   }
 
   errors() {
-    return (
-      <ul className="errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors) {
+      return (
+        <ul className="errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
 
