@@ -17,3 +17,15 @@
 a {
   text-decoration: none;
 }
+.arrow {
+  font-family: 'Material Icons';
+  font-size: 24px;
+  font-weight: lighter;
+  font-style: normal;
+  text-transform: none;
+  font-size: 17px;
+  align-self: center;
+}
+.arrow:hover {
+  cursor: pointer;
+}

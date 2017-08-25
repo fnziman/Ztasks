@@ -1,15 +1,43 @@
 .lists-index{
-  margin-left: 12px;
+  margin: 0 11px;
   font-family: arial;
   font-size: 14px;
   border-bottom: 1px solid #bfd9f1;
   padding: 10px 0;
 }
-.list-title {
-  margin-left: 17px;
+.list-index-item {
+  height: 22px;
+  padding-left: 17px;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
-.list-title:hover {
-  background-color: grey;//need to change color
+.list-index-item:hover {
+  background-color: #bfd7ef;
+  cursor: pointer;
+}
+.list-arrow{
+  font-size: 1px;
+  border: 1px solid #7ab2e0;
+  color: #7ab2e0;
+  border-radius: 5px;
+  margin: 1px 3px;
+}
+.list-arrow:hover {
+  color: #d7e7f5;
+  background-color: #7ab2e0;
+  border-radius: 5px;
+}
+.list-header {
+  display: flex;
+  flex-direction: row;
+  height: 22px;
+  align-items: center;
+}
+.list-header:hover {
+  background-color: #bfd7ef;
   cursor: pointer;
 }
 //list forms

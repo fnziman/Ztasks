@@ -7,7 +7,7 @@
   background-color: #0060bf;
   padding: 0 20px;
 }
-.right-header-container, .left-header-container {
+.right-header-container, .middle-header-container, .left-header-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,16 +21,26 @@
 }
 .left-header-container {
   justify-content: flex-start;
-  margin-right: 156px;
+  margin-right: 145px;
+}
+.middle-header-container {
+  width: 100%;
+  justify-content: space-between;
 }
 .right-header-container {
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-right: 40px;
 }
 .menu {
   align-self: center;
   cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 3px;
+
+}
+.menu:hover {
+  background-color: darkblue; //need to change to actual color
 }
 .searchbar-container {
   display: flex;
@@ -42,25 +52,26 @@
   padding: 0 5px;
   height: 30px;
   width: 294px;
-  cursor: text;
+}
+.searchbar-container:hover{
+  background-color: darkblue; //change to actual color
 }
 .searchbar input {
   background-color: transparent;
   border-radius: 3px;
   height: 30px;
   width: 100%;
-  cursor: default;
+  cursor: text;
 }
-.settings {
+.settings, .cloud, .notifications {
   display: flex;
   align-content: center;
   justify-content: center;
   cursor: pointer;
+  border-radius: 3px;
+  padding: 3px 6px;
 }
-.arrow {
-  font-size: 17px;
-  align-self: center;
-}
-.settings:hover {
 
+.settings:hover, .cloud:hover, .notifications:hover {
+  background-color: darkblue; //need to change
 }

@@ -31,7 +31,7 @@ class ListIndex extends React.Component {
     }
     const lists = this.props.lists.map(list => {
       return (
-        <ListIndexItem className="lists-index-item"
+        <ListIndexItem
           key={list.id}
           list={list}
           edit={this.props.editList}
@@ -42,7 +42,10 @@ class ListIndex extends React.Component {
     return (
       <div className="lists-index">
         {form}
-        <h1>Lists</h1>
+        <div className="list-header">
+          <i className="arrow">arrow_drop_down</i>
+          <h1>Lists</h1>
+        </div>
         {lists}
       </div>
     );
