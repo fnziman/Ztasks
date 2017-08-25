@@ -25,7 +25,7 @@ class Header extends React.Component {
 
               </input>
             </form>
-            <i className="arrow">arrow_drop_down</i>
+            <i className="arrow searchbar-arrow">arrow_drop_down</i>
           </div>
         </container>
         <container className="right-header-container">

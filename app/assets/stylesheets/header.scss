@@ -26,6 +26,8 @@
 .middle-header-container {
   width: 100%;
   justify-content: space-between;
+  position: relative;
+  left: -25px;
 }
 .right-header-container {
   width: 100%;
@@ -37,31 +39,43 @@
   cursor: pointer;
   padding: 3px 6px;
   border-radius: 3px;
-
 }
 .menu:hover {
-  background-color: darkblue; //need to change to actual color
+  background-color: rgba(0,0,0,0.15);
+  color: white;
 }
 .searchbar-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  background-color: rgb(51, 128, 204);
-  border-radius: 3px;
-  padding: 0 5px;
-  height: 30px;
-  width: 294px;
-}
-.searchbar-container:hover{
-  background-color: darkblue; //change to actual color
 }
 .searchbar input {
-  background-color: transparent;
+  background-color: rgb(51, 128, 204);
   border-radius: 3px;
   height: 30px;
-  width: 100%;
+  width: 244px;//width: 100%;
+  padding: 0 20px 0 30px;
   cursor: text;
+  color: white;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.search {
+  position: relative;
+  left: 28px;
+}
+.searchbar input:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.searchbar input:focus {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  background-color: white;
+  color: black;
+  border: none;
+  box-shadow: none;
 }
 .settings, .cloud, .notifications {
   display: flex;
@@ -71,7 +85,11 @@
   border-radius: 3px;
   padding: 3px 6px;
 }
-
+.searchbar-arrow {
+  position: relative;
+  right: 20px;
+}
 .settings:hover, .cloud:hover, .notifications:hover {
-  background-color: darkblue; //need to change
+  background-color: rgba(0,0,0,0.15);
+  color: white;
 }
