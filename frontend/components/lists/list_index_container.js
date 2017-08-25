@@ -3,6 +3,7 @@ import ListIndex from './list_index';
 import { fetchLists,
          createForm,
          createList,
+         currentList,
          setCurrentList,
          editForm,
          editList,
@@ -13,6 +14,7 @@ import { asArray } from '../../reducers/selectors';
 
 const mapStateToProps = state => {
   return {
+    currentList: state.currentList,
     ui: state.ui,
     lists: asArray(state),
     currentUser: state.session.currentUser,

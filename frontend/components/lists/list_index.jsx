@@ -15,6 +15,7 @@ class ListIndex extends React.Component {
           key={list.id}
           list={list}
           ui={this.props.ui}
+          currentList={this.props.currentList}
           setCurrentList={this.props.setCurrentList}
           editForm={this.props.editForm}
           editList={this.props.editList}
