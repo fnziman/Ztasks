@@ -34,15 +34,17 @@ class ListForm extends React.Component {
         <div className="list-form">
           <span onClick={this.close} className="close-button">&times;</span>
           <h1>Add a list</h1>
-          <label>Please enter a new list name:
+          <form onSubmit={this.handleSubmit}>
+            <label>Please enter a new list name:
+              <br/>
+              <input className="input-text" type="text" onChange={this.updateTitle} value={this.state.title} />
+            </label>
             <br/>
-            <input className="input-text" type="text" onChange={this.updateTitle} value={this.state.title} />
-          </label>
-          <br/>
-          <container className="buttons">
-            <input className="add-button" type="button"  onClick={this.handleSubmit} defaultValue="Add" />
-            <input className="cancel-button" type="button" onClick={this.close}  defaultValue="Cancel" />
-          </container>
+            <container className="buttons">
+              <input className="add-button" type="submit" defaultValue="Add" />
+              <input className="cancel-button" type="button" onClick={this.close}  defaultValue="Cancel" />
+            </container>
+          </form>
         </div>
       </container>
     );

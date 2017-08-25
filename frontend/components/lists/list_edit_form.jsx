@@ -35,13 +35,15 @@ class ListEditForm extends React.Component {
         <div className="list-edit-form">
           <span onClick={this.close} className="close-button">&times;</span>
           <h1>Rename list</h1>
-          <label>List name:
+          <form onSubmit={this.handleSubmit} >
+            <label>List name:
+              <br/>
+              <input type="text" onChange={this.updateTitle} value={this.state.title} />
+            </label>
             <br/>
-            <input type="text" onChange={this.updateTitle} value={this.state.title} />
-          </label>
-          <br/>
-          <input onClick={this.handleSubmit} className="save-button" type="button" defaultValue="Save" />
-          <input onClick={this.close} className="cancel-button" type="button" defaultValue="Cancel" />
+            <input className="save-button" type="submit" defaultValue="Save" />
+            <input onClick={this.close} type="button" className="cancel-button" defaultValue="Cancel" />
+          </form>
         </div>
       </container>
     );
