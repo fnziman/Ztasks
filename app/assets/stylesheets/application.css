@@ -29,3 +29,9 @@ a {
 .arrow:hover {
   cursor: pointer;
 }
+.flex-container {
+  display: inline-block;
+  position: absolute;
+  left: 300px;
+  bottom: 30vh;
+}

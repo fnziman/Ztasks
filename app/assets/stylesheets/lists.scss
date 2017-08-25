@@ -8,6 +8,7 @@
 .list-index-item {
   height: 22px;
   padding-left: 17px;
+  padding-bottom: 2px;
   align-self: center;
   display: flex;
   justify-content: space-between;
@@ -17,17 +18,20 @@
   background-color: #bfd7ef;
   cursor: pointer;
 }
-.list-arrow{
-  font-size: 1px;
+.list-arrow, .add-list {
+  font-family: 'Material Icons';
+  font-size: 10px !important;
   border: 1px solid #7ab2e0;
   color: #7ab2e0;
-  border-radius: 5px;
+  border-radius: 3px;
   margin: 1px 3px;
+  position: absolute;
+  left: 169px;
 }
-.list-arrow:hover {
+.list-arrow:hover,.add-list:hover {
   color: #d7e7f5;
   background-color: #7ab2e0;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .list-header {
   display: flex;
@@ -42,6 +46,7 @@
 //list forms
 .list-form, .list-edit-form {
   display: flex;
+  background-color: white;
   flex-direction: column;
   justify-content: space-around;
   width: 325px;
@@ -49,8 +54,9 @@
   border-radius: 5px;
   border: 1px solid #d0d3d6;
   padding: 29px 37px;
-  margin:0 auto;
+  margin: auto;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  font-family: sans-serif;
 }
 .list-form h1,.list-edit-form h1 {
   font-size: 20px;
@@ -85,6 +91,10 @@
   text-align: center;
   max-width: 75px;
   max-height: 30px;
+  cursor: default;
+}
+.cancel-button:focus {
+  outline: none;
 }
 .close-button {
   color: #d0d3d6;

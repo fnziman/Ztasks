@@ -5,7 +5,7 @@
   width: 100vw;
   height: 40px;
   background-color: #0060bf;
-  padding: 0 20px;
+  -webkit-font-smoothing: antialiased;
 }
 .right-header-container, .middle-header-container, .left-header-container {
   display: flex;
@@ -22,17 +22,18 @@
 .left-header-container {
   justify-content: flex-start;
   margin-right: 145px;
+  margin-left: 11px;
 }
 .middle-header-container {
   width: 100%;
   justify-content: space-between;
   position: relative;
-  left: -25px;
+  left: -16px;
 }
 .right-header-container {
   width: 100%;
   justify-content: flex-end;
-  margin-right: 40px;
+  margin-right: 4px;
 }
 .menu {
   align-self: center;
@@ -74,8 +75,7 @@
   font-weight: normal;
   background-color: white;
   color: black;
-  border: none;
-  box-shadow: none;
+  outline: none;
 }
 .settings, .cloud, .notifications {
   display: flex;

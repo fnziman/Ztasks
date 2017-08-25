@@ -5,9 +5,9 @@ const Sidebar = () => {
   return (
     <container className="sidebar-container">
       <container className="logo">
-        
+
       </container>
-      <ListIndexContainer />
+      <ListIndexContainer/>
     </container>
   );
 };

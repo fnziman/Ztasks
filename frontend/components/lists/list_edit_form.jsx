@@ -10,8 +10,12 @@ class ListEditForm extends React.Component {
       user_id: this.props.list.user_id
     };
 
+    this.close = this.close.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  close() {
+    this.props.clearUi();
   }
 
   updateTitle(e) {
@@ -21,24 +25,25 @@ class ListEditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const list = this.state;
-    this.props.edit({ list: list });
+    this.props.clearUi();
+    this.props.editList({ list: list });
   }
 
   render() {
     return (
-      <div className="list-edit-form">
-        <span className="close-button">&times;</span>
-        <h1>Rename list</h1>
-        <form onSubmit={this.handleSubmit} >
+      <container className="flex-container">
+        <div className="list-edit-form">
+          <span onClick={this.close} className="close-button">&times;</span>
+          <h1>Rename list</h1>
           <label>List name:
             <br/>
             <input type="text" onChange={this.updateTitle} value={this.state.title} />
           </label>
           <br/>
-          <input className="save-button" type="submit" value="Save" />
-          <input className="cancel-button" defaultValue="Cancel" />
-        </form>
-      </div>
+          <input onClick={this.handleSubmit} className="save-button" type="button" defaultValue="Save" />
+          <input onClick={this.close} className="cancel-button" type="button" defaultValue="Cancel" />
+        </div>
+      </container>
     );
   }
 }
