@@ -14,7 +14,7 @@
 #
 
 class Task < ActiveRecord::Base
-  validates :title, :due_date, :completed, :list_id, presence: true
+  validates :title, :due_date, :list_id, presence: true
 
   belongs_to :list
 end
