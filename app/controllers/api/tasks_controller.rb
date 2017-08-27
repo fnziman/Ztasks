@@ -1,4 +1,4 @@
-class Api::TasksController < ApllicationRecord
+class Api::TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     # how to get task's list?
