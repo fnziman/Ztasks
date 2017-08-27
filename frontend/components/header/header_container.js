@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import Header from './header';
 import { logout } from '../../actions/session_actions';
+import { settingsDropdown, clearUi } from '../../actions/list_actions';
 
-const mapStateToProps = ({ session }) => {
+const mapStateToProps = state => {
   return {
-    currentUser: session.currentUser,
+    ui: state.ui,
+    currentUser: state.session.currentUser,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    settingsDropdown: () => dispatch(settingsDropdown()),
+    clearUi: () => dispatch(clearUi()),
     logout: user => dispatch(logout(user)),
   };
 };

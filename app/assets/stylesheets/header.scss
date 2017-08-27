@@ -93,3 +93,46 @@
   background-color: rgba(0,0,0,0.15);
   color: white;
 }
+.settings-dropdown {
+  display: block;
+  position: fixed;
+  right: 10px;
+  top: 40px;
+  background: white;
+  border-radius: 3px;
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0 1px 4px 1px rgba(0,0,0,0.2);
+
+}
+.user {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+}
+.user-info {
+  flex-direction: column;
+  margin-left: 10px;
+  line-height: 1.4;
+}
+.name {
+  font-weight: bold;
+}
+.email {
+  color: rgb(102, 102, 102);
+}
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 3px;
+  background-color: blue;
+}
+.signout {
+  cursor: pointer;
+  padding: 5px;
+}
+.signout:hover {
+  background-color: #bfd7ef;
+}

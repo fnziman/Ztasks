@@ -11,6 +11,11 @@ class MainPage extends React.Component {
 
     this.state = { nextProps: {}};
     this.form = this.form.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+  handleLogout() {
+    this.props.logout(this.props.currentUser);
+    this.props.clearUi();
   }
 
   form() {
@@ -37,6 +42,16 @@ class MainPage extends React.Component {
         <HeaderContainer />
         <Sidebar />
         {this.form()}
+        <container className={this.props.ui === "settings" ? "settings-dropdown view" : "hidden"}>
+          <div className="user">
+            <p className="avatar">avatar</p>
+            <div className="user-info">
+              <p className="name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
+              <p className="email">{this.props.currentUser.email}</p>
+            </div>
+          </div>
+          <p className="signout" onClick={this.handleLogout} >Sign out</p>
+        </container>
       </div>
     );
   }
