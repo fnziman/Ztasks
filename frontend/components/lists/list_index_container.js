@@ -9,6 +9,7 @@ import { fetchLists,
          editList,
          listsDropDown,
          clearUi,
+         clearCurrentList,
          deleteList } from '../../actions/list_actions';
 import { asArray } from '../../reducers/selectors';
 
@@ -31,6 +32,7 @@ const mapDispatchToProps =  dispatch => {
     editList: listId => dispatch(editList(listId)),
     listsDropDown: () => dispatch(listsDropDown()),
     clearUi: () => dispatch(clearUi()),
+    clearCurrentList: () => dispatch(clearCurrentList()),
     deleteList: listId => dispatch(deleteList(listId)),
   };
 };

@@ -21,6 +21,7 @@ class ListIndex extends React.Component {
           editList={this.props.editList}
           listsDropDown={this.props.listsDropDown}
           clearUi={this.props.clearUi}
+          clearCurrentList={this.props.clearCurrentList}
           deleteList={this.props.deleteList} />
       );
     });
