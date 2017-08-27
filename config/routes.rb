@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :lists, only: [:create, :index, :show, :update, :destroy]
+    resources :tasks, only: [:create, :index, :show, :update, :destroy]
+    # still need:
+    # - `GET /api/tasks/:due_date`
+      # + tasks for a specific due date
   end
 
 end
