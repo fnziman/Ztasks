@@ -14,13 +14,10 @@ const App = () => {
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/app" component={MainPageContainer} />
-  
+
     </div>
 
   );
 };
 
 export default App;
-// <ProtectedRoute path="/app/:taskType" component={TaskIndexContainer} />
-// <ProtectedRoute exact path="/app/list/:listId" component={TaskIndexContainer} />
-// <ProtectedRoute path="/app/list/:listId/:taskId" component={TaskIndexContainer} />
