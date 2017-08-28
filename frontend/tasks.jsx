@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 // testing
-import { createForm, editForm, listsDropDown, settingsDropdown, clearUi } from './actions/list_actions';
+import { fetchTasks,
+         createTask,
+         editTask,
+         deleteTask
+       } from './actions/task_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -18,11 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   //TEST
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.createForm = createForm;
-  window.editForm = editForm;
-  window.listsDropDown = listsDropDown;
-  window.settingsDropdown = settingsDropdown;
-  window.clearUi = clearUi;
+  window.fetchTasks = fetchTasks;
+  window.createTask = createTask;
+  window.editTask = editTask;
+  window.deleteTask = deleteTask;
   //TEST END
 
   ReactDOM.render(<Root store={store} />, root);

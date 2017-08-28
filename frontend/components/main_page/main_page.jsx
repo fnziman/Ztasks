@@ -3,7 +3,7 @@ import HeaderContainer from '../header/header_container';
 import Sidebar from '../sidebar/sidebar';
 import ListForm from '../lists/list_form';
 import ListEditForm from '../lists/list_edit_form';
-
+import TaskIndexContainer from '../tasks/task_index_container';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -52,6 +52,7 @@ class MainPage extends React.Component {
           </div>
           <p className="signout" onClick={this.handleLogout} >Sign out</p>
         </container>
+        <TaskIndexContainer />
       </div>
     );
   }
