@@ -5,6 +5,7 @@ import LoginFormContainer from './login/login_form_container';
 import SignupFormContainer from './signup/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import MainPageContainer from './main_page/main_page_container';
+import TaskIndexContainer from './tasks/task_index_container';
 
 const App = () => {
   return (
@@ -12,10 +13,14 @@ const App = () => {
       <Route exact path="/" component={Greeting} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute path="/app" component={MainPageContainer} />
+      <ProtectedRoute exact path="/app" component={MainPageContainer} />
+  
     </div>
 
   );
 };
 
 export default App;
+// <ProtectedRoute path="/app/:taskType" component={TaskIndexContainer} />
+// <ProtectedRoute exact path="/app/list/:listId" component={TaskIndexContainer} />
+// <ProtectedRoute path="/app/list/:listId/:taskId" component={TaskIndexContainer} />

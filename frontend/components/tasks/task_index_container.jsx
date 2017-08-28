@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
-import TaskIndex from './task_index';
+import { withRouter } from 'react-router-dom';
+import AllTasks from './all_tasks';
 import { fetchTasks,
          createTask,
          editTask,
          deleteTask
        } from '../../actions/task_actions';
-import { TasksAsArray } from '../../reducers/selectors';
+import { TasksAsArray, ListTasks } from '../../reducers/selectors';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    currentList: state.currentList,
+    listId: ownProps.match.params.listId,
     ui: state.ui,
     tasks: TasksAsArray(state),
     currentUser: state.session.currentUser,
@@ -25,4 +26,4 @@ const mapDispatchToProps =  dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AllTasks));

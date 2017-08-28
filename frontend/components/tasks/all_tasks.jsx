@@ -1,11 +1,11 @@
 import React from 'react';
 
-class TaskIndex extends React.Component {
+class AllTasks extends React.Component {
   constructor(props) {
     super(props);
     this.state={
       title: 'Add a task...',
-      // list_id: this.params.match???
+      list_id: this.props.listId,
       //need to remove requirement on due_date
       showing: "incomplete"
     };
@@ -26,7 +26,7 @@ class TaskIndex extends React.Component {
     this.setState({ showing: "incomplete"});
   }
   updateInput(e) {
-    this.setState({ newTask: e.target.value });
+    this.setState({ title: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -37,16 +37,27 @@ class TaskIndex extends React.Component {
 
   render() {
     const complete = this.props.tasks.map(task => {
-      if (task.complete) {
-        return <li>{task.title}</li>;
+
+      if (task.completed) {
+        return (
+          <li key={task.id} className='task'>
+            <div className='checkbox'></div>
+            <div>{task.title}</div>
+          </li>
+        );
       }
     });
     const incomplete = this.props.tasks.map(task => {
-      if (!task.complete) {
-        return <li>{task.title}</li>;
+
+      if (!task.completed) {
+        return (
+          <li key={task.id} className="task">
+            <div className='checkbox'></div>
+            <div>{task.title}</div>
+          </li>
+        );
       }
     });
-
     return (
       <container className="tasks-index">
         <div className="tasks-choice">
@@ -55,17 +66,20 @@ class TaskIndex extends React.Component {
         </div>
         <div className="add-task">
           <form>
-            <input className="add-task-input" type="text" onChange={this.updateInput} value={this.state.newTask} />
+            <input className="add-task-input" type="text" onChange={this.updateInput} value={this.state.title} />
             <br/>
-            <input className="add-task-buton" type="submit" onClick={this.handleSubmit} defaultValue="Add Task" />
+            <div className="add-task-options">
+              <input type="button" />
+              <input className="add-task-button" type="submit" onClick={this.handleSubmit} defaultValue="Add Task" />
+            </div>
           </form>
         </div>
-        <div className={this.state.showing === "incomplete" ? "tasks view" : "incomplete-tasks hidden"}>
+        <div className={this.state.showing === "incomplete" ? "tasks view" : "hidden"}>
           <ul>
             {incomplete}
           </ul>
         </div>
-        <div className={this.state.showing === "complete" ? "tasks view" : "complete-tasks hidden"}>
+        <div className={this.state.showing === "complete" ? "tasks view" : "hidden"}>
           <ul>
             {complete}
           </ul>
@@ -75,4 +89,4 @@ class TaskIndex extends React.Component {
   }
 }
 
-export default TaskIndex;
+export default AllTasks;
