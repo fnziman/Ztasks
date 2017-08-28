@@ -1,7 +1,7 @@
 class Api::TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
-    # how to get task's list?
+    @task.list_id = task_params[:list_id]
     if @task.save
       render :show
     else
@@ -36,6 +36,6 @@ class Api::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :notes, :due_date, :time_estimate)
+    params.require(:task).permit(:title, :list_id, :notes, :due_date, :time_estimate)
   end
 end

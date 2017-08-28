@@ -67,7 +67,7 @@ class Tasks extends React.Component {
         </div>
         <div className="add-task">
           <form>
-            <input className="add-task-input" type="text" onChange={this.updateInput} value={this.state.title} />
+          <input className="add-task-input" type="text" onChange={this.updateInput} value={this.state.title} />
             <br/>
             <div className="add-task-options">
               <input type="button" />

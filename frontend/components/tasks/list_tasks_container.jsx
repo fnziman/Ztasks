@@ -7,7 +7,7 @@ import { TasksAsArray } from '../../reducers/selectors';
 const mapStateToProps = (state, ownProps) => {
   const allTasks = TasksAsArray(state);
   const listTasks = allTasks.filter(task => {
-    return (task.list_id == ownProps.match.params.listId);
+    return (task.list_id === Number(ownProps.match.params.listId));
   });
   let complete = [];
   let incomplete = [];
@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
     }
   });
   return {
-    listId: ownProps.match.params.listId,
+    listId: Number(ownProps.match.params.listId),
     complete: complete,
     incomplete: incomplete,
     currentUser: state.session.currentUser,
