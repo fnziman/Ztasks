@@ -1,12 +1,32 @@
+.checkbox {
+  height: 11px;
+  width: 11px;
+  border: 1px solid #c1c1c1;
+  border-radius: 2px;
+  margin: 6px 6px 4px 9px
+}
+.task {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px dotted #999;
+  border-left: 3px solid #ccc;
+  padding: 5px 0;
+  margin: 2px 0;
+  align-items: center;
+  cursor: pointer;
+}
+.task:hover {
+  background-color: #fffac0;
+}
 .tasks-index {
   display: flex;
   flex-direction: column;
   background-color: white;
   font-family: sans-serif;
   color: black;
-  font-size: 13px;
-  border-radius: 3px;
-  min-width: 525px;
+  font-size: 14px;
+  border-radius: 6px;
+  min-width: 50%;
   margin-top: 10px;
   padding: 23px 17px 0;
   text-align: left;
@@ -14,26 +34,47 @@
 .tasks-choice {
   font-weight: bold;
   text-align: right;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted grey;
 }
 .tasks-choice span {
-  // border-top: 1px solid grey;//to be changed
-  // border-left: 1px solid grey;//to be changed
-  // border-right: 1px solid grey;//to be changed
-  //
+  height: 26px;
+  padding: 0 9px;
+  cursor: pointer;
 }
 .add-task {
   flex-direction: column;
-  height: 52px;
+  border-bottom: 1px dotted grey;
 }
 .add-task-input {
   height: 18px;
-  width: 525px;
+  width: -webkit-fill-available;
   padding: 6px 7px;
-  border: 1px solid grey; //change color
+  margin-bottom: 10px;
+  border: 1px solid #999;
   border-radius: 3px;
+  color: #999;
+  font-weight: normal;
+}
+.add-task-input:focus {
+  color: black;
+  outline: none;
+}
+.add-task-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.add-task-button {
+  background-color: #2e8ceb;
+  padding: 9px;
+  border-radius: 3px;
+  color: white;
+  margin-bottom: 10px;
+
 }
 .tasks {
   flex-direction: column;
-  border-bottom: 1px solid grey;
-
 }
