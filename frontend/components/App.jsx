@@ -5,7 +5,6 @@ import LoginFormContainer from './login/login_form_container';
 import SignupFormContainer from './signup/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import MainPageContainer from './main_page/main_page_container';
-import TaskIndexContainer from './tasks/task_index_container';
 
 const App = () => {
   return (

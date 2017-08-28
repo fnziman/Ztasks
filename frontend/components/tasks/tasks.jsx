@@ -1,12 +1,11 @@
 import React from 'react';
 
-class AllTasks extends React.Component {
+class Tasks extends React.Component {
   constructor(props) {
     super(props);
     this.state={
       title: 'Add a task...',
       list_id: this.props.listId,
-      //need to remove requirement on due_date
       showing: "incomplete"
     };
 
@@ -14,6 +13,8 @@ class AllTasks extends React.Component {
     this.showIncomplete = this.showIncomplete.bind(this);
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.incomplete = this.incomplete.bind(this);
+    this.complete = this.complete.bind(this);
   }
 
   componentDidMount() {
@@ -34,30 +35,30 @@ class AllTasks extends React.Component {
     this.setState({ title: "Add a task..." });
     this.props.createTask(task);
   }
+  incomplete() {
+    return this.props.incomplete.map(task => {
+      return (
+        <li key={task.id} className="task">
+          <div className="checkbox"></div>
+          <div>{task.title}</div>
+        </li>
+      );
+    });
+  }
+  complete() {
+    return this.props.complete.map(task => {
+      return (
+        <li key={task.id} className="task">
+          <div className="checkbox"></div>
+          <div>{task.title}</div>
+        </li>
+      );
+    });
+  }
+
+
 
   render() {
-    const complete = this.props.tasks.map(task => {
-
-      if (task.completed) {
-        return (
-          <li key={task.id} className='task'>
-            <div className='checkbox'></div>
-            <div>{task.title}</div>
-          </li>
-        );
-      }
-    });
-    const incomplete = this.props.tasks.map(task => {
-
-      if (!task.completed) {
-        return (
-          <li key={task.id} className="task">
-            <div className='checkbox'></div>
-            <div>{task.title}</div>
-          </li>
-        );
-      }
-    });
     return (
       <container className="tasks-index">
         <div className="tasks-choice">
@@ -76,12 +77,12 @@ class AllTasks extends React.Component {
         </div>
         <div className={this.state.showing === "incomplete" ? "tasks view" : "hidden"}>
           <ul>
-            {incomplete}
+            {this.incomplete()}
           </ul>
         </div>
         <div className={this.state.showing === "complete" ? "tasks view" : "hidden"}>
           <ul>
-            {complete}
+            {this.complete()}
           </ul>
         </div>
       </container>
@@ -89,4 +90,4 @@ class AllTasks extends React.Component {
   }
 }
 
-export default AllTasks;
+export default Tasks;
