@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ListEditForm from './list_edit_form';
 
 class ListIndexItem extends React.Component {
@@ -31,7 +32,7 @@ class ListIndexItem extends React.Component {
 
   render() {
     return (
-      <div className="list-index-item">
+      <Link to={`/app/list/${this.props.list.id}`} className="list-index-item">
         <span className="list-title">{this.props.list.title}</span>
         <i onClick={this.toggleDrop} className="arrow list-arrow">arrow_drop_down</i>
         <container
@@ -41,7 +42,7 @@ class ListIndexItem extends React.Component {
           <p onClick={this.handleEdit}>Rename list</p>
           <p onClick={this.handleDelete}>Remove list</p>
         </container>
-      </div>
+      </Link>
     );
   }
 }
