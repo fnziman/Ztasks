@@ -11,13 +11,13 @@ import { fetchLists,
          clearUi,
          clearCurrentList,
          deleteList } from '../../actions/list_actions';
-import { asArray } from '../../reducers/selectors';
+import { ListsAsArray } from '../../reducers/selectors';
 
 const mapStateToProps = state => {
   return {
     currentList: state.currentList,
     ui: state.ui,
-    lists: asArray(state),
+    lists: ListsAsArray(state),
     currentUser: state.session.currentUser,
   };
 };
