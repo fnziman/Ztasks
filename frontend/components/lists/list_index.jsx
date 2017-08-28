@@ -1,11 +1,13 @@
 import React from 'react';
 import ListIndexItem from './list_index_item';
+import { Link } from 'react-router-dom';
 
 class ListIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showLists: true };
+    this.state = { showLists: true, showInbox: true };
     this.toggleLists = this.toggleLists.bind(this);
+    this.toggleInbox = this.toggleInbox.bind(this);
   }
 
   componentDidMount() {
@@ -16,6 +18,13 @@ class ListIndex extends React.Component {
       this.setState({ showLists: false });
     } else {
       this.setState({ showLists: true });
+    }
+  }
+  toggleInbox() {
+    if (this.state.showInbox) {
+      this.setState({ showInbox: false });
+    } else {
+      this.setState({ showInbox: true });
     }
   }
 
@@ -40,9 +49,20 @@ class ListIndex extends React.Component {
     return (
       <container className="list-index-container" >
         <div className="lists-index">
+          <div onClick={this.toggleInbox} className="list-header">
+            <i className="arrow">arrow_drop_down</i>
+            <h1>Inbox</h1>
+          </div>
+          <container className={this.state.showInbox ? "view" : "hidden"}>
+            <Link className="list-index-item" to="/app/all">All Tasks</Link>
+            <Link className="list-index-item" to="/app/today">Today</Link>
+            <Link className="list-index-item" to="/app/tomorrow">Tomorrow</Link>
+            <Link className="list-index-item list-title" to="/app/this_week">This Week</Link>
+          </container>
+        </div>
+        <div className="lists-index">
           <div onClick={this.toggleLists} className="list-header">
             <i className="arrow">arrow_drop_down</i>
-
             <h1>Lists</h1>
             <i onClick={this.props.createForm} className="add-list">add</i>
           </div>
