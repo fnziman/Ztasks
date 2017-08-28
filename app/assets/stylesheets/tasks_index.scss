@@ -1,0 +1,39 @@
+.tasks-index {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  font-family: sans-serif;
+  color: black;
+  font-size: 13px;
+  border-radius: 3px;
+  min-width: 525px;
+  margin-top: 10px;
+  padding: 23px 17px 0;
+  text-align: left;
+}
+.tasks-choice {
+  font-weight: bold;
+  text-align: right;
+}
+.tasks-choice span {
+  // border-top: 1px solid grey;//to be changed
+  // border-left: 1px solid grey;//to be changed
+  // border-right: 1px solid grey;//to be changed
+  //
+}
+.add-task {
+  flex-direction: column;
+  height: 52px;
+}
+.add-task-input {
+  height: 18px;
+  width: 525px;
+  padding: 6px 7px;
+  border: 1px solid grey; //change color
+  border-radius: 3px;
+}
+.tasks {
+  flex-direction: column;
+  border-bottom: 1px solid grey;
+
+}

@@ -38,15 +38,15 @@ class TaskIndex extends React.Component {
   render() {
     const complete = this.props.tasks.map(task => {
       if (task.complete) {
-        return task.title;
+        return <li>{task.title}</li>;
       }
     });
     const incomplete = this.props.tasks.map(task => {
       if (!task.complete) {
-        return task.title;
+        return <li>{task.title}</li>;
       }
     });
-    
+
     return (
       <container className="tasks-index">
         <div className="tasks-choice">
@@ -55,15 +55,20 @@ class TaskIndex extends React.Component {
         </div>
         <div className="add-task">
           <form>
-            <input type="text" onChange={this.updateInput} value={this.state.newTask} />
-            <input type="submit" onClick={this.handleSubmit} defaultValue="Add Task" />
+            <input className="add-task-input" type="text" onChange={this.updateInput} value={this.state.newTask} />
+            <br/>
+            <input className="add-task-buton" type="submit" onClick={this.handleSubmit} defaultValue="Add Task" />
           </form>
         </div>
-        <div className={this.state.showing === "incomplete" ? "incomplete-tasks view" : "incomplete-tasks hidden"}>
-          {incomplete}
+        <div className={this.state.showing === "incomplete" ? "tasks view" : "incomplete-tasks hidden"}>
+          <ul>
+            {incomplete}
+          </ul>
         </div>
-        <div className={this.state.showing === "complete" ? "complete-tasks view" : "complete-tasks hidden"}>
-          {complete}
+        <div className={this.state.showing === "complete" ? "tasks view" : "complete-tasks hidden"}>
+          <ul>
+            {complete}
+          </ul>
         </div>
       </container>
     );

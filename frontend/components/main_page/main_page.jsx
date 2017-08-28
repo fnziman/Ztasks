@@ -38,22 +38,26 @@ class MainPage extends React.Component {
 
   render() {
     return(
-      <div className="main-page">
-        <HeaderContainer />
-        <Sidebar />
-        {this.form()}
-        <container className={this.props.ui === "settings" ? "settings-dropdown view" : "hidden"}>
-          <div className="user">
-            <p className="avatar">avatar</p>
-            <div className="user-info">
-              <p className="name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
-              <p className="email">{this.props.currentUser.email}</p>
-            </div>
-          </div>
-          <p className="signout" onClick={this.handleLogout} >Sign out</p>
+      <container className="main-page">
+        <container className="header-container">
+          <HeaderContainer />
         </container>
-        <TaskIndexContainer />
-      </div>
+        <container className="main-container">
+          <Sidebar />
+          {this.form()}
+          <TaskIndexContainer />
+          <container className={this.props.ui === "settings" ? "settings-dropdown view" : "hidden"}>
+            <div className="user">
+              <p className="avatar">avatar</p>
+              <div className="user-info">
+                <p className="name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
+                <p className="email">{this.props.currentUser.email}</p>
+              </div>
+            </div>
+            <p className="signout" onClick={this.handleLogout} >Sign out</p>
+          </container>
+        </container>
+      </container>
     );
   }
 }

@@ -27,7 +27,7 @@ laundry = Task.new(
                     notes: "use tide, not downy",
                     due_date: Date.parse('12-09-2017'),
                     list_id: personal.id,
-                    completed: false,
+                    completed: true,
                     time_estimate: 65
                   )
 dishes = Task.new(
@@ -51,7 +51,7 @@ coffee_run = Task.new(
                     notes: "the boss like two sugars and extra cream",
                     due_date: Date.parse('04-09-2017'),
                     list_id: work.id,
-                    completed: false,
+                    completed: true,
                     time_estimate: 15
                   )
 laundry.save!
