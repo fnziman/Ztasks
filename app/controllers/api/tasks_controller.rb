@@ -36,6 +36,6 @@ class Api::TasksController < ApplicationController
   private
 
   def task_params
-    parmas.require(:task).permit(:title, :notes, :due_date, :time_estimate)
+    params.require(:task).permit(:title, :notes, :due_date, :time_estimate)
   end
 end
