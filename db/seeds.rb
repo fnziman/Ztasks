@@ -41,7 +41,7 @@ dishes = Task.new(
 donaldson_project = Task.new(
                     title: "Donaldson Project",
                     notes: "dont forget that project managers name is Tracy",
-                    due_date: Date.parse('2017-04-11'),
+                    due_date: Date.parse('2017-11-04'),
                     list_id: work.id,
                     completed: false,
                     time_estimate: 300
@@ -49,7 +49,7 @@ donaldson_project = Task.new(
 coffee_run = Task.new(
                     title: "coffee run",
                     notes: "the boss like two sugars and extra cream",
-                    due_date: Date.parse('2017-04-09'),
+                    due_date: Date.parse('2017-09-04'),
                     list_id: work.id,
                     completed: true,
                     time_estimate: 15
