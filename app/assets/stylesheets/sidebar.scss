@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   background-color: #e4eef8;
-  width: 200px;
+  min-width: 200px;
   height: 100vh;
   align-content: space-between;
 }
 .logo {
   align-self: center;
-  width: 151px;
+  max-width: 153px;
   min-width: 151px;
   height: 71px;
   border: 1px solid black; //to be removed
