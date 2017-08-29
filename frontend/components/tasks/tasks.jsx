@@ -53,15 +53,13 @@ class Tasks extends React.Component {
   complete() {
     return this.props.complete.map(task => {
       return (
-        <Link to={`${this.props.location.pathname}/${this.props.listId}/${task.id}`} key={task.id} className="task">
+        <Link to={`${this.props.location.pathname}/${task.id}`} key={task.id} className="task">
           <div className="checkbox"></div>
           <div>{task.title}</div>
         </Link>
       );
     });
   }
-
-
 
   render() {
     return (

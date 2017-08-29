@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 // testing
-import { fetchTasks,
+import { fetchSingleTask,
          createTask,
          editTask,
          deleteTask
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //TEST
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchTasks = fetchTasks;
+  window.fetchTasks = fetchSingleTask;
   window.createTask = createTask;
   window.editTask = editTask;
   window.deleteTask = deleteTask;

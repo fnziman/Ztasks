@@ -8,6 +8,7 @@ import TodayTasksContainer from '../tasks/today_tasks_container';
 import TomorrowTasksContainer from '../tasks/tomorrow_tasks_container';
 import ThisWeekTasksContainer from '../tasks/this_week_tasks_container';
 import ListTasksContainer from '../tasks/list_tasks_container';
+import TaskDetailContainer from '../tasks/task_detail/task_detail_container';
 import { Route, Switch } from 'react-router-dom';
 
 class MainPage extends React.Component {
@@ -50,13 +51,22 @@ class MainPage extends React.Component {
         <container className="main-container">
           <Sidebar />
           {this.form()}
-          <Switch>
-            <Route path="/app/all" component={AllTasksContainer} />
-            <Route path="/app/today" component={TodayTasksContainer} />
-            <Route path="/app/tomorrow" component={TomorrowTasksContainer} />
-            <Route path="/app/this_week" component={ThisWeekTasksContainer} />
-            <Route path="/app/list/:listId" component={ListTasksContainer} />
-          </Switch>
+          <container className="secondary-container">
+            <Switch>
+              <Route path="/app/all" component={AllTasksContainer} />
+              <Route path="/app/today" component={TodayTasksContainer} />
+              <Route path="/app/tomorrow" component={TomorrowTasksContainer} />
+              <Route path="/app/this_week" component={ThisWeekTasksContainer} />
+              <Route path="/app/list/:listId" component={ListTasksContainer} />
+            </Switch>
+            <Switch>
+              <Route path="/app/all/:taskId" component={TaskDetailContainer} />
+              <Route path="/app/today/:taskId" component={TaskDetailContainer} />
+              <Route path="/app/tomorrow/:taskId" component={TaskDetailContainer} />
+              <Route path="/app/this_week/:taskId" component={TaskDetailContainer} />
+              <Route path="/app/list/:listId/:taskId" component={TaskDetailContainer} />
+            </Switch>
+          </container>
           <container className={this.props.ui === "settings" ? "settings-dropdown view" : "hidden"}>
             <div className="user">
               <p className="avatar">avatar</p>

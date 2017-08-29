@@ -1,0 +1,57 @@
+.task-detail-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  font-family: sans-serif;
+  color: black;
+  font-size: 14px;
+  border-radius: 6px;
+  min-width: 50%;
+  margin-top: 10px;
+  padding: 23px 17px 0;
+  text-align: left;
+}
+.close {
+  align-self: flex-end;
+  color: #808080;
+  font-size: 14px;
+}
+.task-detail-container form {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  width: 80%;
+  height: 26px;
+  text-align: left;
+  margin: 20px;
+  padding-left: 5px;
+  border-left: 3px solid #cccccc;
+  font-size: 18px;
+}
+.title:hover {
+  border-color: #d0d3d6
+}
+.title:focus {
+  border: 1px solid #3295ff;
+  outline: none;
+}
+.date,.list {
+  margin-left: 45px;
+  color: #9999a2;
+  cursor: pointer;
+}
+.date input {
+  margin-left: 45px;
+}
+.list select {
+  margin-left: 45px;
+  padding: 5px 8px;
+  border: none;
+  box-shadow: none;
+}
+.list select:focus {
+  outline: none;
+}

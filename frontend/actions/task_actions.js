@@ -36,13 +36,18 @@ export const receiveCurrentTask = currentTask => {
     currentTask,
   };
 };
-
 ////////////////////////////////////////////
 
 export const fetchTasks = () => dispatch => {
   return APIUtil.fetchTasks()
     .then(
       tasks => (dispatch(receiveTasks(tasks)))
+    );
+};
+export const fetchSingleTask = (taskId) => dispatch => {
+  return APIUtil.fetchSingleTask(taskId)
+    .then(
+      task => (dispatch(receiveSingleTask(task)))
     );
 };
 export const createTask = (task) => dispatch => {
@@ -53,9 +58,19 @@ export const createTask = (task) => dispatch => {
 };
 export const editTask = (taskId) => dispatch => {
   return APIUtil.editTask(taskId)
-    .then(() => dispatch(updateTask(taskId)));
+    .then(
+      () => (dispatch(updateTask(taskId)))
+    );
 };
 export const deleteTask = (taskId) => dispatch => {
   return APIUtil.deleteTask(taskId)
-    .then(() => dispatch(removeTask(taskId)));
+    .then(
+      () => (dispatch(removeTask(taskId)))
+    );
+};
+export const setCurrentTask = taskId => dispatch => {
+  return APIUtil.fetchSingleTask(taskId)
+  .then(
+    task => dispatch(receiveCurrentTask(task))
+  )
 };
