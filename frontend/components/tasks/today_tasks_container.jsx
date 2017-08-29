@@ -6,9 +6,12 @@ import { TasksAsArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const allTasks = TasksAsArray(state);
-  let incomplete = [];
+  const listTasks = allTasks.filter(task => {
+    return (task.list_id === Number(ownProps.match.params.listId));
+  });
   let complete = [];
-  allTasks.forEach (task => {
+  let incomplete = [];
+  listTasks.forEach (task => {
     if (task.completed) {
       complete.push(task);
     } else {
@@ -17,9 +20,9 @@ const mapStateToProps = (state, ownProps) => {
   });
   return {
     listId: null,
-    ui: state.ui,
-    incomplete: incomplete,
+    due_date: Date.now,
     complete: complete,
+    incomplete: incomplete,
     currentUser: state.session.currentUser,
   };
 };

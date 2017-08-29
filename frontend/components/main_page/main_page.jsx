@@ -4,6 +4,7 @@ import Sidebar from '../sidebar/sidebar';
 import ListForm from '../lists/list_form';
 import ListEditForm from '../lists/list_edit_form';
 import AllTasksContainer from '../tasks/all_tasks_container';
+import TodayTasksContainer from '../tasks/today_tasks_container';
 import ListTasksContainer from '../tasks/list_tasks_container';
 import { Route, Switch } from 'react-router-dom';
 
@@ -49,6 +50,7 @@ class MainPage extends React.Component {
           {this.form()}
           <Switch>
             <Route path="/app/all" component={AllTasksContainer} />
+            <Route path="app/today" component={TodayTasksContainer} />
             <Route path="/app/list/:listId" component={ListTasksContainer} />
           </Switch>
           <container className={this.props.ui === "settings" ? "settings-dropdown view" : "hidden"}>
