@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Tasks extends React.Component {
   constructor(props) {
@@ -42,20 +43,20 @@ class Tasks extends React.Component {
   incomplete() {
     return this.props.incomplete.map(task => {
       return (
-        <li key={task.id} className="task">
+        <Link to={`${this.props.location.pathname}/${task.id}`} key={task.id} className="task">
           <div className="checkbox"></div>
           <div>{task.title}</div>
-        </li>
+        </Link>
       );
     });
   }
   complete() {
     return this.props.complete.map(task => {
       return (
-        <li key={task.id} className="task">
+        <Link to={`${this.props.location.pathname}/${this.props.listId}/${task.id}`} key={task.id} className="task">
           <div className="checkbox"></div>
           <div>{task.title}</div>
-        </li>
+        </Link>
       );
     });
   }
