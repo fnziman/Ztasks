@@ -3,9 +3,8 @@ import React from 'react';
 class Tasks extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       title: 'Add a task...',
-      list_id: this.props.listId,
       showing: "incomplete"
     };
 
@@ -31,7 +30,7 @@ class Tasks extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const task = { title: this.state.title, list_id: this.state.list_id };
+    const task = { title: this.state.title, list_id: this.props.listId };
     this.setState({ title: "Add a task..." });
     this.props.createTask(task);
   }
