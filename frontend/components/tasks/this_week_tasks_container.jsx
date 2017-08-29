@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   const allTasks = TasksAsArray(state);
 
   let currentDate = new Date();
-  currentDate.setDate(currentDate.getDate() + 1); //set to tomorrow
+  currentDate.setDate(currentDate.getDate() + 6); //set to week
   let year = currentDate.getFullYear();
   let month = currentDate.getMonth();
   if (month < 10) {
@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
   }
   let formattedDate = year + "-" + month + "-" + date;
   const listTasks = allTasks.filter(task => {
-    return (task.due_date === formattedDate);
+    return (task.due_date <= formattedDate);
   });
   let complete = [];
   let incomplete = [];
@@ -33,7 +33,7 @@ const mapStateToProps = (state, ownProps) => {
   });
   return {
     listId: null,
-    dueDate: formattedDate,
+    dueDate: null,
     complete: complete,
     incomplete: incomplete,
     currentUser: state.session.currentUser,

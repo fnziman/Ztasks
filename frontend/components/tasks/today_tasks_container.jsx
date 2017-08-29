@@ -14,6 +14,9 @@ const mapStateToProps = (state, ownProps) => {
     month = '0' + (month + 1);
   }
   let date = currentDate.getDate();
+  if (date < 10) {
+    date = '0' + (date + 1);
+  }
   let formattedDate = year + "-" + month + "-" + date;
   const listTasks = allTasks.filter(task => {
     return (task.due_date === formattedDate);
