@@ -50,7 +50,7 @@ class MainPage extends React.Component {
           {this.form()}
           <Switch>
             <Route path="/app/all" component={AllTasksContainer} />
-            <Route path="app/today" component={TodayTasksContainer} />
+            <Route path="/app/today" component={TodayTasksContainer} />
             <Route path="/app/list/:listId" component={ListTasksContainer} />
           </Switch>
           <container className={this.props.ui === "settings" ? "settings-dropdown view" : "hidden"}>

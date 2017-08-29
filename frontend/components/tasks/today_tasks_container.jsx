@@ -6,8 +6,17 @@ import { TasksAsArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const allTasks = TasksAsArray(state);
+
+  let currentDate = new Date();
+  let year = currentDate.getFullYear();
+  let month = currentDate.getMonth();
+  if (month < 10) {
+    month = '0' + (month + 1);
+  }
+  let date = currentDate.getDate();
+  let formattedDate = year + "-" + month + "-" + date;
   const listTasks = allTasks.filter(task => {
-    return (task.list_id === Number(ownProps.match.params.listId));
+    return (task.due_date === formattedDate);
   });
   let complete = [];
   let incomplete = [];
@@ -20,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
   });
   return {
     listId: null,
-    due_date: Date.now,
+    dueDate: formattedDate,
     complete: complete,
     incomplete: incomplete,
     currentUser: state.session.currentUser,

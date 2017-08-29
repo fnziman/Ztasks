@@ -61,9 +61,11 @@ class ListIndex extends React.Component {
           </container>
         </div>
         <div className="lists-index">
-          <div onClick={this.toggleLists} className="list-header">
-            <i className="arrow">arrow_drop_down</i>
-            <h1>Lists</h1>
+          <div className="list-header">
+            <div className="clickable" onClick={this.toggleLists} >
+              <i className="arrow">arrow_drop_down</i>
+              <h1>Lists</h1>
+            </div>
             <i onClick={this.props.createForm} className="add-list">add</i>
           </div>
           <container className={this.state.showLists ? "view" : "hidden"}>

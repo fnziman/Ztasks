@@ -5,6 +5,7 @@ class Tasks extends React.Component {
     super(props);
     this.state = {
       title: 'Add a task...',
+      dueDate: this.props.dueDate,
       showing: "incomplete"
     };
 
@@ -30,7 +31,11 @@ class Tasks extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const task = { title: this.state.title, list_id: this.props.listId };
+    const task = {
+      title: this.state.title,
+      due_date: this.props.dueDate,
+      list_id: this.props.listId
+    };
     this.setState({ title: "Add a task..." });
     this.props.createTask(task);
   }

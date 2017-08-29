@@ -25,7 +25,7 @@ Task.delete_all
 laundry = Task.new(
                     title: "laundry",
                     notes: "use tide, not downy",
-                    due_date: Date.parse('12-09-2017'),
+                    due_date: Date.parse('2017-09-04'),
                     list_id: personal.id,
                     completed: true,
                     time_estimate: 65
@@ -33,7 +33,7 @@ laundry = Task.new(
 dishes = Task.new(
                     title: "dishes",
                     notes: "make sure to soak before putting in dishwasher",
-                    due_date: Date.parse('09-09-2017'),
+                    due_date: Date.parse('2017-09-09'),
                     list_id: personal.id,
                     completed: false,
                     time_estimate: 30
@@ -41,7 +41,7 @@ dishes = Task.new(
 donaldson_project = Task.new(
                     title: "Donaldson Project",
                     notes: "dont forget that project managers name is Tracy",
-                    due_date: Date.parse('11-10-2017'),
+                    due_date: Date.parse('2017-04-11'),
                     list_id: work.id,
                     completed: false,
                     time_estimate: 300
@@ -49,7 +49,7 @@ donaldson_project = Task.new(
 coffee_run = Task.new(
                     title: "coffee run",
                     notes: "the boss like two sugars and extra cream",
-                    due_date: Date.parse('04-09-2017'),
+                    due_date: Date.parse('2017-04-09'),
                     list_id: work.id,
                     completed: true,
                     time_estimate: 15

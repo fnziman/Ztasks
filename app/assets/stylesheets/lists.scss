@@ -44,6 +44,11 @@
   background-color: #bfd7ef;
   cursor: pointer;
 }
+.clickable {
+  display: flex;
+  flex-direction: row;
+  padding-right: 117px;
+}
 //list forms
 .list-form, .list-edit-form {
   display: flex;

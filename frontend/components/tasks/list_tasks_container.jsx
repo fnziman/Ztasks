@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
     }
   });
   return {
+    dueDate: null,
     listId: Number(ownProps.match.params.listId),
     complete: complete,
     incomplete: incomplete,
