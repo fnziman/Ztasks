@@ -45,7 +45,6 @@ class ListIndex extends React.Component {
           deleteList={this.props.deleteList} />
       );
     });
-
     return (
       <container className="list-index-container" >
         <div className="lists-index">
@@ -54,10 +53,18 @@ class ListIndex extends React.Component {
             <h1>Inbox</h1>
           </div>
           <container className={this.state.showInbox ? "view" : "hidden"}>
-            <Link className="list-index-item" to="/app/all">All Tasks</Link>
-            <Link className="list-index-item" to="/app/today">Today</Link>
-            <Link className="list-index-item" to="/app/tomorrow">Tomorrow</Link>
-            <Link className="list-index-item list-title" to="/app/this_week">This Week</Link>
+            <Link className="list-index-item" to="/app/all">All Tasks
+              <span className="num-tasks">{this.props.allTasks.length}</span>
+            </Link>
+            <Link className="list-index-item" to="/app/today">Today
+              <span className="num-tasks">{this.props.todayTasks.length}</span>
+            </Link>
+            <Link className="list-index-item" to="/app/tomorrow">Tomorrow
+              <span className="num-tasks">{this.props.tomorrowTasks.length}</span>
+            </Link>
+            <Link className="list-index-item list-title" to="/app/this_week">This Week
+              <span className="num-tasks">{this.props.thisWeekTasks.length}</span>
+            </Link>
           </container>
         </div>
         <div className="lists-index">
