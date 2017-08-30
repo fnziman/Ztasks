@@ -71,7 +71,7 @@ class TaskDetail extends React.Component {
           </label>
           <label className="list">list
               <select onChange={this.update('list_id')}>
-                <option value={null}>None</option>
+                <option value={0}>None</option>
                 {this.lists()}
               </select>
           </label>
