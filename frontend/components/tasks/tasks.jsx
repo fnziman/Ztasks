@@ -43,7 +43,7 @@ class Tasks extends React.Component {
   incomplete() {
     return this.props.incomplete.map(task => {
       return (
-        <Link to={`${this.props.match.path}/${task.id}`}
+        <Link to={`${this.props.match.url}/${task.id}`}
           key={task.id} className="task">
           <div className="checkbox"></div>
           <div>{task.title}</div>
@@ -54,7 +54,7 @@ class Tasks extends React.Component {
   complete() {
     return this.props.complete.map(task => {
       return (
-        <Link to={`${this.props.match.path}/${task.id}`}
+        <Link to={`${this.props.match.url}/${task.id}`}
           key={task.id} className="task">
           <div className="checkbox"></div>
           <div>{task.title}</div>

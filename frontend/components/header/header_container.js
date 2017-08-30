@@ -7,6 +7,7 @@ const mapStateToProps = state => {
   return {
     ui: state.ui,
     currentUser: state.session.currentUser,
+    currentList: state.currentList,
   };
 };
 

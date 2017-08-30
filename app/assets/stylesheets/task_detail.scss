@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
 }
-.title {
+.title ,.notes {
   border: 1px solid transparent;
   border-radius: 3px;
   width: 80%;
@@ -32,15 +32,16 @@
   border-left: 3px solid #cccccc;
   font-size: 18px;
 }
-.title:hover {
+.title:hover,.notes:hover {
   border-color: #d0d3d6
 }
-.title:focus {
+.title:focus ,.notes:focus {
   border: 1px solid #3295ff;
   outline: none;
 }
-.date,.list {
+.date, .list {
   margin-left: 45px;
+  margin-bottom: 25px;
   color: #9999a2;
   cursor: pointer;
 }
@@ -55,4 +56,14 @@
 }
 .list select:focus {
   outline: none;
+}
+.task-detail-container h1 {
+  font-size: 18px;
+  border-bottom: 1px dotted #cccccc;
+}
+.notes {
+  font-size: 13px;
+  border: 1px solid #cccccc;
+  word-wrap: break-word;
+  white-space: pre-line;
 }

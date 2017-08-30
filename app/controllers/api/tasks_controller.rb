@@ -18,7 +18,7 @@ class Api::TasksController < ApplicationController
     render :index
   end
 
-  def edit
+  def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
       render json: @task
