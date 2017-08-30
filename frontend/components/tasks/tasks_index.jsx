@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import TaskIndexItem from './task_index_item';
+import { Link, withRouter } from 'react-router-dom';
 
-class Tasks extends React.Component {
+class TasksIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,8 +15,6 @@ class Tasks extends React.Component {
     this.showIncomplete = this.showIncomplete.bind(this);
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.incomplete = this.incomplete.bind(this);
-    this.complete = this.complete.bind(this);
   }
 
   componentDidMount() {
@@ -40,30 +39,29 @@ class Tasks extends React.Component {
     this.setState({ title: "Add a task..." });
     this.props.createTask(task);
   }
-  incomplete() {
-    return this.props.incomplete.map(task => {
-      return (
-        <Link to={`${this.props.match.url}/${task.id}`}
-          key={task.id} className="task">
-          <div className="checkbox"></div>
-          <div>{task.title}</div>
-        </Link>
-      );
-    });
-  }
-  complete() {
-    return this.props.complete.map(task => {
-      return (
-        <Link to={`${this.props.match.url}/${task.id}`}
-          key={task.id} className="task">
-          <div className="checkbox"></div>
-          <div>{task.title}</div>
-        </Link>
-      );
-    });
-  }
 
   render() {
+    const incomplete = this.props.incomplete.map(task => {
+      return (
+        <TaskIndexItem
+          key={task.id}
+          task={task}
+          editTask={this.props.editTask}
+          url={this.props.match.url}
+          />
+      );
+    });
+    const complete = this.props.complete.map(task => {
+        return (
+          <TaskIndexItem
+            key={task.id}
+            task={task}
+            editTask={this.props.editTask}
+            url={this.props.match.url}
+            />
+        );
+      });
+
     return (
       <container className="tasks-index">
         <div className="tasks-choice">
@@ -81,18 +79,17 @@ class Tasks extends React.Component {
           </form>
         </div>
         <div className={this.state.showing === "incomplete" ? "tasks view" : "hidden"}>
-          <ul>
-            {this.incomplete()}
-          </ul>
+          {incomplete}
         </div>
         <div className={this.state.showing === "complete" ? "tasks view" : "hidden"}>
           <ul>
-            {this.complete()}
+            {complete}
           </ul>
         </div>
+
       </container>
     );
   }
 }
 
-export default Tasks;
+export default withRouter(TasksIndex);

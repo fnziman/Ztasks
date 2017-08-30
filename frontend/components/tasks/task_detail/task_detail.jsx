@@ -44,7 +44,7 @@ class TaskDetail extends React.Component {
     return this.props.lists.map(list => {
       return (
         <option
-           key={list.id} value={list.id}>
+          key={list.id} value={list.id}>
           {list.title}
         </option>
       );
@@ -71,6 +71,7 @@ class TaskDetail extends React.Component {
           </label>
           <label className="list">list
               <select onChange={this.update('list_id')}>
+                <option value={null}>None</option>
                 {this.lists()}
               </select>
           </label>

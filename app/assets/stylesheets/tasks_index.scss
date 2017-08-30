@@ -3,21 +3,37 @@
   width: 11px;
   border: 1px solid #c1c1c1;
   border-radius: 2px;
-  margin: 6px 6px 4px 9px
+  margin: 0px 10px 0px 10px;
+}
+.checkbox:hover {
+  border-top: 2px solid #c1c1c1;
+}
+.checkbox:focus {
+  font-family: "Material Icons";
+  font-size: 16px;
+  content: 'check_box';
 }
 .task {
   display: flex;
   flex-direction: row;
   border-bottom: 1px dotted #e5e5e5;
   border-left: 3px solid #cccccc;
-  padding: 5px 0;
-  margin: 2px 0;
   align-items: center;
   cursor: pointer;
   color: black;
 }
 .task:hover {
   background-color: #ffc;
+}
+.task-link {
+  padding: 10px;
+  width: 37vw;
+}
+.task-link {
+  color: black;
+}
+.task-link:focus {
+  color: black;
 }
 .tasks-index {
   display: flex;

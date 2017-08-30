@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Tasks from './tasks';
-import { fetchTasks, createTask } from '../../actions/task_actions';
+import TasksIndex from './tasks_index';
+import { fetchTasks, createTask, editTask } from '../../actions/task_actions';
 import { TasksAsArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
@@ -43,7 +43,8 @@ const mapDispatchToProps =  dispatch => {
   return {
     fetchTasks: () => dispatch(fetchTasks()),
     createTask: task => dispatch(createTask(task)),
+    editTask: task => dispatch(editTask(task)),
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Tasks));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TasksIndex));
