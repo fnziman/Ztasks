@@ -54,7 +54,25 @@ coffee_run = Task.new(
                     completed: true,
                     time_estimate: 15
                   )
+brakes = Task.new(
+                    title: "get brakes replaced",
+                    notes: "don't go to the theif of a mechanic on 5th",
+                    due_date: Date.parse('2017-10-04'),
+                    list_id: personal.id,
+                    completed: false,
+                    time_estimate: 60
+                  )
+pickup_drycleaning = Task.new(
+                    title: "pick up dry cleaning",
+                    notes: "check and make sure they got the stain on my shirt",
+                    due_date: Date.parse('2017-09-02'),
+                    list_id: 0,
+                    completed: false,
+                    time_estimate: 5
+                  )
 laundry.save!
 dishes.save!
 donaldson_project.save!
 coffee_run.save!
+brakes.save!
+pickup_drycleaning.save!
