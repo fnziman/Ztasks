@@ -17,7 +17,13 @@ class TaskDetail extends React.Component {
   }
 
   componentDidMount() {
-    this.props.setCurrentTask(this.props.taskId);
+    this.setState({
+      id: this.props.currentTask.id,
+      title: this.props.currentTask.title,
+      due_date: this.props.currentTask.due_date,
+      list_id: this.props.currentTask.list_id,
+      notes: this.props.currentTask.notes,
+    });
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -28,7 +34,6 @@ class TaskDetail extends React.Component {
       notes: nextProps.currentTask.notes,
     });
   }
-
   update(property) {
     return e => this.setState({
       [property]: e.target.value
@@ -48,7 +53,7 @@ class TaskDetail extends React.Component {
     e.preventDefault();
     const task = this.state;
     this.props.editTask(task);
-    this.props.history.goBack();
+    this.props.history.push('/app/all');
   }
 
   render() {

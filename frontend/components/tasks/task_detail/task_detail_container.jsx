@@ -10,7 +10,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentTask: state.currentTask,
+    currentTask: state.tasks[ownProps.match.params.taskId],
     taskId: ownProps.match.params.taskId,
     lists: ListsAsArray(state),
     listId: ownProps.match.params.listId,
