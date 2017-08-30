@@ -60,10 +60,40 @@
 .task-detail-container h1 {
   font-size: 18px;
   border-bottom: 1px dotted #cccccc;
+  padding-bottom: 10px;
+  margin-left: 20px;
 }
 .notes {
   font-size: 13px;
   border: 1px solid #cccccc;
   word-wrap: break-word;
   white-space: pre-line;
+  margin-left: 45px;
+  width: auto;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.edit-task {
+  background-color: #2e8ceb;
+  padding: 9px;
+  border-radius: 3px;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 78px;
+  align-self: flex-end;
+  margin-left: 45px;
+}
+.delete-task {
+  background-color: #2e8ceb;
+  padding: 9px;
+  border-radius: 3px;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 78px;
+  margin-right: 20px;
+  align-self: flex-end;
 }

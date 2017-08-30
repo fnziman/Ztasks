@@ -16,7 +16,7 @@ const tasksReducer = (state = {}, action) => {
     case UPDATE_TASK:
       return _.merge({}, state, { [action.task.id]: action.task });
     case REMOVE_TASK:
-      return _.merge({}, state, { [action.task.id]: action.task });
+      return _.omit(state, [action.task]);
     default:
     return state;
   }

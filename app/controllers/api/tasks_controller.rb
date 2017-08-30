@@ -27,7 +27,7 @@ class Api::TasksController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     @task = Task.find(params[:id])
     @task.destroy
     render :show

@@ -14,6 +14,7 @@ class TaskDetail extends React.Component {
     this.lists = this.lists.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   componentDidMount() {
@@ -55,6 +56,9 @@ class TaskDetail extends React.Component {
     this.props.editTask(task);
     this.props.history.push('/app/all');
   }
+  deleteTask() {
+    this.props.deleteTask(this.props.currentTask.id);
+  }
 
   render() {
     return (
@@ -71,7 +75,11 @@ class TaskDetail extends React.Component {
               </select>
           </label>
           <h1>Notes</h1>
-            <input onChange={this.update('notes')} className="notes" type="text" value={this.state.notes} />
+          <input onChange={this.update('notes')} className="notes" type="text" value={this.state.notes} />
+          <span className="buttons">
+            <input type="submit" className="edit-task"  defaultValue="Save" />
+            <input type="button" className="delete-task" onClick={this.deleteTask} defaultValue="Delete" />
+          </span>
         </form>
       </container>
     );
