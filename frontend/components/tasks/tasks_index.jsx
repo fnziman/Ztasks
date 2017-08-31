@@ -48,6 +48,7 @@ class TasksIndex extends React.Component {
           task={task}
           editTask={this.props.editTask}
           url={this.props.match.url}
+          completed={this.state.showing}
           />
       );
     });
@@ -83,7 +84,7 @@ class TasksIndex extends React.Component {
         <div className={this.state.showing === "incomplete" ? "tasks view" : "hidden"}>
           {incomplete}
         </div>
-        <div className={this.state.showing === "complete" ? "tasks view" : "hidden"}>
+        <div className={this.state.showing === "complete" ? "tasks view crossed-out" : "hidden"}>
           <ul>
             {complete}
           </ul>
