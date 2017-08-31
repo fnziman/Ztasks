@@ -9,11 +9,11 @@ class ListForm extends React.Component {
       user_id: this.props.currentUser.id,
     };
 
-
     this.close = this.close.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   close() {
     this.props.clearUi();
   }
@@ -25,12 +25,14 @@ class ListForm extends React.Component {
     const list = this.state;
     this.setState({ title: '' });
     this.props.clearUi();
-    this.props.createList( list );
+    this.props.createList(list);
   }
 
   render() {
     return (
-      <container onClick={this.close} className="flex-container">
+      <container className="flex-container">
+        <span onClick={this.close} className="form-background"></span>
+        
         <div className="list-form">
           <span onClick={this.close} className="close-button">&times;</span>
           <h1>Add a list</h1>

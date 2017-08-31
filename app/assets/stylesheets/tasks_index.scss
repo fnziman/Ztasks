@@ -48,6 +48,12 @@
   padding: 23px 17px 0;
   text-align: left;
 }
+.showing {
+  border-top: 1px dotted #e5e5e5;
+  border-right: 1px dotted #e5e5e5;
+  border-left: 1px dotted #e5e5e5;
+  border-bottom: none;
+}
 .tasks-choice {
   font-weight: bold;
   text-align: right;
@@ -58,8 +64,9 @@
 }
 .tasks-choice span {
   height: 26px;
-  padding: 0 9px;
+  padding: 9px 9px;
   cursor: pointer;
+  border-bottom: none;
 }
 .add-task {
   flex-direction: column;

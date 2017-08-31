@@ -50,6 +50,12 @@
   padding-right: 117px;
 }
 //list forms
+.form-background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+}
 .list-form, .list-edit-form {
   display: flex;
   background-color: white;
@@ -63,6 +69,9 @@
   margin: 175px auto;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   font-family: sans-serif;
+  z-index: 1000;
+  position: absolute;
+  left: 250px;
 }
 .list-form h1,.list-edit-form h1 {
   font-size: 20px;

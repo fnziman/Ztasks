@@ -19,10 +19,16 @@ class MainPage extends React.Component {
     this.state = { nextProps: {}};
     this.form = this.form.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.closeDropdowns = this.closeDropdowns.bind(this);
   }
   handleLogout() {
     this.props.logout(this.props.currentUser);
     this.props.clearUi();
+  }
+  closeDropdowns() {
+    if (this.props.ui === "settings" || this.props.ui === "lists") {
+      this.props.clearUi();
+    }
   }
 
   form() {
@@ -49,7 +55,7 @@ class MainPage extends React.Component {
         <container className="header-container">
           <HeaderContainer />
         </container>
-        <container className="main-container">
+        <container onClick={this.closeDropdowns} className="main-container">
           <Sidebar />
           {this.form()}
           <container className="secondary-container">
