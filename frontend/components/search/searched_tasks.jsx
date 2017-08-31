@@ -1,8 +1,8 @@
 import React from 'react';
-import TaskIndexItem from './task_index_item';
+import TaskIndexItem from '../tasks/task_index_item';
 import { Link, withRouter } from 'react-router-dom';
 
-class TasksIndex extends React.Component {
+class SearchedTasks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -94,4 +94,4 @@ class TasksIndex extends React.Component {
   }
 }
 
-export default withRouter(TasksIndex);
+export default withRouter(SearchedTasks);

@@ -12,61 +12,40 @@ class ListSummary extends React.Component {
 
     switch (listName) {
       case "all":
-        if (this.props.allTasks.length > 0) {
-          totalTasks = this.props.allTasks;
-          dueToday = this.props.allTasks.filter(task => {
-            return(task.due_date === this.props.today);
-          });
-          dueTomorrow = this.props.allTasks.filter(task => {
-            return(task.due_date === this.props.tomorrow);
-          });
-          completed = this.props.allTasks.filter(task => {
-            return(task.complete);
-          });
-        }
+        listName = "all tasks";
+        totalTasks = this.props.allTasksIncomplete;
+        dueToday = this.props.allTasksIncomplete.filter(task => {
+          return(this.props.todayTasksIncomplete.includes(task));
+        });
+        dueTomorrow = this.props.allTasksIncomplete.filter(task => {
+          return(this.props.tomorrowTasksIncomplete.includes(task));
+        });
+        completed = this.props.allTasksComplete;
         break;
       case "today":
-        if (this.props.todayTasks.length > 0) {
-          totalTasks = this.props.todayTasks;
-          dueToday = this.props.todayTasks;
-          completed = this.props.todayTasks.filter(task => {
-            return(task.complete);
-          });
-        }
+        totalTasks = this.props.todayTasksIncomplete;
+        dueToday = this.props.todayTasksIncomplete;
+        completed = this.props.todayTasksComplete;
         break;
       case "tomorrow":
-        if (this.props.tomorrowTasks.length > 0) {
-          totalTasks = this.props.tomorrowTasks;
-          dueTomorrow = this.props.tomorrowTasks;
-          completed = this.props.todayTasks.filter(task => {
-            return(task.complete);
-          });
-        }
-          break;
+        totalTasks = this.props.tomorrowTasksIncomplete;
+        dueTomorrow = this.props.tomorrowTasksIncomplete;
+        completed = this.props.todayTasksComplete;
+        break;
       case "this_week":
-        if (this.props.thisWeekTasks.length > 0) {
-          listName = "this week";
-          totalTasks = this.props.thisWeekTasks;
-          dueToday = this.props.todayTasks;
-          dueTomorrow = this.props.tomorrowTasks;
-          completed = this.props.thisWeekTasks.filter(task => {
-            return(task.complete);
-          });
-        }
+        listName = "This Week";
+        totalTasks = this.props.thisWeekTasksIncomplete;
+        dueToday = this.props.todayTasksIncomplete;
+        dueTomorrow = this.props.tomorrowTasksIncomplete;
+        completed = this.props.thisWeekTasksComplete;
         break;
       default:
         if (this.props.currentList) {
           listName = this.props.currentList.title;
-          totalTasks = this.props.currentList.tasks;
-          dueToday = this.props.currentList.tasks.filter(task => {
-            return(task.due_date === this.props.today);
-          });
-          dueTomorrow = this.props.currentList.tasks.filter(task => {
-            return(task.due_date === this.props.tomorrow);
-          });
-          completed = this.props.currentList.tasks.filter(task => {
-            return(task.completed);
-          });
+          totalTasks = this.props.currentListIncomplete;
+          dueToday = this.props.currentListToday;
+          dueTomorrow = this.props.currentListTomorrow;
+          completed = this.props.currentListComplete;
         }
     }
     return (

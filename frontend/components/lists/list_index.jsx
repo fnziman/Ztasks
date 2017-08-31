@@ -45,6 +45,7 @@ class ListIndex extends React.Component {
           deleteList={this.props.deleteList} />
       );
     });
+
     return (
       <container className="list-index-container" >
         <div className="lists-index">

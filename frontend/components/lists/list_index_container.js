@@ -12,6 +12,7 @@ import { fetchLists,
          clearCurrentList,
          deleteList } from '../../actions/list_actions';
 import { ListsAsArray, TasksAsArray } from '../../reducers/selectors';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
   const allTasks = TasksAsArray(state);
@@ -109,4 +110,4 @@ const mapDispatchToProps =  dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListIndex));
