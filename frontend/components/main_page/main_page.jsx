@@ -12,6 +12,7 @@ import TaskDetailContainer from '../tasks/task_detail/task_detail_container';
 import { Route, Switch } from 'react-router-dom';
 import ListSummaryContainer from '../lists/list_summary_container';
 import SearchedTasksContainer from '../search/searched_tasks_container';
+import SearchSummaryContainer from '../search/search_summary_container';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class MainPage extends React.Component {
               <Route path="/app/tomorrow" component={TomorrowTasksContainer} />
               <Route path="/app/this_week" component={ThisWeekTasksContainer} />
               <Route path="/app/list/:listId" component={ListTasksContainer} />
-              <Route path="/search/:listId/:searchTerm" component={SearchedTasksContainer} />
+              <Route path="/search/:searchTerm" component={SearchedTasksContainer} />
             </Switch>
 
             <Switch>
@@ -75,6 +76,7 @@ class MainPage extends React.Component {
               <Route exact path="/app/tomorrow" component={ListSummaryContainer} />
               <Route exact path="/app/this_week" component={ListSummaryContainer} />
               <Route exact path="/app/list/:listId" component={ListSummaryContainer} />
+              <Route path="/search/:searchTerm" component={SearchSummaryContainer} />
 
               <Route path="/app/all/:taskId" component={TaskDetailContainer} />
               <Route path="/app/today/:taskId" component={TaskDetailContainer} />

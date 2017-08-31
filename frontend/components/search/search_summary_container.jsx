@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import SearchedTasks from './searched_tasks';
+import SearchSummary from './search_summary';
 import { fetchTasks, createTask, editTask} from '../../actions/task_actions';
 import * as Selector from '../../reducers/selectors';
 
@@ -35,4 +35,4 @@ const mapDispatchToProps =  dispatch => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchedTasks));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchSummary));

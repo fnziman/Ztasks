@@ -24,8 +24,7 @@ class Header extends React.Component {
     this.setState({ search: e.target.value });
   }
   search() {
-    const currentList = this.props.location.pathname.split('/').slice(-1)[0];
-    this.props.history.push(`/search/${currentList}/${this.state.search}`);
+    this.props.history.push(`/search/${this.state.search}`);
   }
 
   render() {

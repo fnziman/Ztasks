@@ -56,10 +56,10 @@ export const createTask = (task) => dispatch => {
       task => (dispatch(receiveSingleTask(task)))
     );
 };
-export const editTask = (taskId) => dispatch => {
-  return APIUtil.editTask(taskId)
+export const editTask = (task) => dispatch => {
+  return APIUtil.editTask(task)
     .then(
-      () => (dispatch(updateTask(taskId)))
+      task => (dispatch(updateTask(task)))
     );
 };
 export const deleteTask = (taskId) => dispatch => {
