@@ -5,7 +5,7 @@ const Sidebar = () => {
   return (
     <container className="sidebar-container">
       <container className="logo">
-
+        <p>Ztasks</p>
       </container>
       <ListIndexContainer/>
     </container>

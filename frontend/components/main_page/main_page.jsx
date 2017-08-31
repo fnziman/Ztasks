@@ -13,6 +13,7 @@ import { Route, Switch } from 'react-router-dom';
 import ListSummaryContainer from '../lists/list_summary_container';
 import SearchedTasksContainer from '../search/searched_tasks_container';
 import SearchSummaryContainer from '../search/search_summary_container';
+import Profile from '../profile/profile';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -21,18 +22,16 @@ class MainPage extends React.Component {
     this.state = { nextProps: {}};
     this.form = this.form.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-    this.closeDropdowns = this.closeDropdowns.bind(this);
+    this.close = this.close.bind(this);
   }
+
   handleLogout() {
     this.props.logout(this.props.currentUser);
     this.props.clearUi();
   }
-  closeDropdowns() {
-    if (this.props.ui === "settings" || this.props.ui === "lists") {
-      this.props.clearUi();
-    }
+  close() {
+    this.props.clearUi();
   }
-
   form() {
     switch (this.props.ui) {
       case "create":
@@ -46,6 +45,11 @@ class MainPage extends React.Component {
           clearCurrentList={this.props.clearCurrentList}
           clearUi={this.props.clearUi}
           editList={this.props.editList} />;
+        case "profile":
+        return <Profile className="profile-form"
+          currentUser={this.props.currentUser}
+          clearUi={this.props.clearUi}
+          editProfile={this.props.editProfile} />;
       default:
         return null;
     }
@@ -57,7 +61,7 @@ class MainPage extends React.Component {
         <container className="header-container">
           <HeaderContainer />
         </container>
-        <container onClick={this.closeDropdowns} className="main-container">
+        <container className="main-container">
           <Sidebar />
           {this.form()}
           <container className="secondary-container">
@@ -87,16 +91,20 @@ class MainPage extends React.Component {
             </Switch>
 
           </container>
-          <container className={this.props.ui === "settings" ? "settings-dropdown view" : "hidden"}>
-            <div className="user">
-              <p className="avatar">avatar</p>
-              <div className="user-info">
-                <p className="name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
-                <p className="email">{this.props.currentUser.email}</p>
+          <div className={this.props.ui === "settings" ? "view drop-container" : "hidden"}>
+            <span onClick={this.close} className="form-background"></span>
+
+            <container className="settings-dropdown">
+              <div onClick={this.props.profileForm} className="user">
+                <p className="avatar">avatar</p>
+                <div className="user-info">
+                  <p className="name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
+                  <p className="email">{this.props.currentUser.email}</p>
+                </div>
               </div>
-            </div>
-            <p className="signout" onClick={this.handleLogout} >Sign out</p>
-          </container>
+              <p className="signout" onClick={this.handleLogout} >Sign out</p>
+            </container>
+          </div>
         </container>
       </container>
     );

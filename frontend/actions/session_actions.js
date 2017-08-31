@@ -38,6 +38,14 @@ export const logout = () => dispatch => {
     .then(dispatch(receiveCurrentUser(null)));
 };
 
+export const editUser = user => dispatch => {
+  return APIUtil.editUser(user)
+    .then(
+      user => (dispatch(receiveCurrentUser(user))),
+      error => (dispatch(receiveErrors(error.responeJSON)))
+    );
+};
+
 export const clearErrors = () => dispatch => {
   dispatch(receiveErrors([]));
 };

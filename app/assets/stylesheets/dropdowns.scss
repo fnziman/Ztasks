@@ -6,13 +6,18 @@
 }
 .lists-dropdown {
   position: relative;
-  left: -5px;
-  top: 39px;
+  left: 49px;
+  top: 226px;
   border-radius: 3px;
-  width: 85px;
+  width: 107px;
   background-color: white;
-  padding: 6px 12px;
-  line-height: 2;
+  line-height: 1.6;
   box-shadow: 0 1px 4px 1px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 1000;
+}
+.lists-dropdown p{
+  padding: 6px 12px;
+}
+.lists-dropdown p:hover {
+  background-color: #bfd7ef;
 }

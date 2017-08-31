@@ -57,6 +57,9 @@ export const listsDropDown = () => {
 export const settingsDropdown = () => {
   return changeUi("settings");
 };
+export const profileForm = () => {
+  return changeUi("profile");
+};
 export const clearUi = () => {
   return changeUi(null);
 };

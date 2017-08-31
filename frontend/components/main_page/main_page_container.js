@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MainPage from './main_page';
-import { logout } from '../../actions/session_actions';
+import { logout, editUser } from '../../actions/session_actions';
 import { createForm,
          createList,
          editForm,
@@ -9,7 +9,8 @@ import { createForm,
          deleteList,
          listsDropDown,
          settingsDropdown,
-         clearUi } from '../../actions/list_actions';
+         clearUi,
+         profileForm } from '../../actions/list_actions';
 
 const mapStateToProps = state => {
   return {
@@ -31,6 +32,8 @@ const mapDispatchToProps = (dispatch) => {
     listsDropDown: () => dispatch(listsDropDown()),
     settingsDropdown: () => dispatch(settingsDropdown()),
     clearUi: () => dispatch(clearUi()),
+    profileForm: () => dispatch(profileForm()),
+    editProfile: (user) => dispatch(editUser(user)),
   };
 };
 

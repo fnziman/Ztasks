@@ -16,6 +16,10 @@
 
 a {
   text-decoration: none;
+  color: black;
+}
+a:focus {
+  color: black;
 }
 .arrow {
   font-family: 'Material Icons';
@@ -35,4 +39,10 @@ a {
   height: 100vh;
   position: absolute;
   background-color: rgba(239, 235, 235, 0.45);
+}
+.drop-container {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
 }
