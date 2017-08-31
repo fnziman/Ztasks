@@ -37,7 +37,7 @@ const mapStateToProps = state => {
     }
     let today = year + "-" + month + "-" + date;
     result = tasks.filter(task => {
-      return (task.due_date === today && !task.completed);
+      return (task.due_date === today);
     });
     return result;
   };
@@ -56,7 +56,7 @@ const mapStateToProps = state => {
     }
     let tomorrow = year + "-" + month + "-" + date;
     result = tasks.filter(task => {
-      return (task.due_date === tomorrow && !task.completed);
+      return (task.due_date === tomorrow);
     });
     return result;
   };
@@ -75,7 +75,7 @@ const mapStateToProps = state => {
     }
     let thisWeek = year + "-" + month + "-" + date;
     result = tasks.filter(task => {
-      return (task.due_date <= thisWeek && !task.completed);
+      return (task.due_date <= thisWeek);
     });
     return result;
   };

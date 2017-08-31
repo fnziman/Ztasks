@@ -10,6 +10,7 @@ import ThisWeekTasksContainer from '../tasks/this_week_tasks_container';
 import ListTasksContainer from '../tasks/list_tasks_container';
 import TaskDetailContainer from '../tasks/task_detail/task_detail_container';
 import { Route, Switch } from 'react-router-dom';
+import ListSummaryContainer from '../lists/list_summary_container';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -59,13 +60,21 @@ class MainPage extends React.Component {
               <Route path="/app/this_week" component={ThisWeekTasksContainer} />
               <Route path="/app/list/:listId" component={ListTasksContainer} />
             </Switch>
+
             <Switch>
+              <Route exact path="/app/all" component={ListSummaryContainer} />
+              <Route exact path="/app/today" component={ListSummaryContainer} />
+              <Route exact path="/app/tomorrow" component={ListSummaryContainer} />
+              <Route exact path="/app/this_week" component={ListSummaryContainer} />
+              <Route exact path="/app/list/:listId" component={ListSummaryContainer} />
+
               <Route path="/app/all/:taskId" component={TaskDetailContainer} />
               <Route path="/app/today/:taskId" component={TaskDetailContainer} />
               <Route path="/app/tomorrow/:taskId" component={TaskDetailContainer} />
               <Route path="/app/this_week/:taskId" component={TaskDetailContainer} />
               <Route path="/app/list/:listId/:taskId" component={TaskDetailContainer} />
             </Switch>
+
           </container>
           <container className={this.props.ui === "settings" ? "settings-dropdown view" : "hidden"}>
             <div className="user">

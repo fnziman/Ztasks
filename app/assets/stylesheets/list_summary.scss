@@ -1,0 +1,43 @@
+.list-summary {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  color: black;
+  background-color: #e4eef8;
+  border-top-right-radius: 6px;
+  margin: 10px 12px 0 -1px;
+  padding: 23px 17px 0;
+  text-align: left;
+  width: 50%;
+}
+.list-summary h1 {
+  text-transform: capitalize;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.summary-items {
+  display: flex;
+}
+
+.summary-item {
+  background: #dbe8f6;
+  padding: 9px 13px;
+  margin-right: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.total {
+  color: #0060bf;
+}
+.summary-item p {
+  color: black;
+  font-size: 12px;
+  font-weight: normal;
+}
+.completed {
+  color: rgba(0,0,0,0.4);
+}
+.completed p {
+  color: rgba(0,0,0,0.4);
+}

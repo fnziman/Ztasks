@@ -54,7 +54,7 @@ class TaskDetail extends React.Component {
     e.preventDefault();
     const task = this.state;
     this.props.editTask(task);
-    this.props.history.push(`${this.props.match.url}`);
+    this.props.history.push(`${this.props.match.url.split('/').slice(0,-1).join('/')}`);
   }
   deleteTask() {
     this.props.deleteTask(this.props.currentTask.id);

@@ -33,7 +33,7 @@ class ListEditForm extends React.Component {
 
   render() {
     return (
-      <container className="flex-container">
+      <container onClick={this.close} className="flex-container">
         <div className="list-edit-form">
           <span onClick={this.close} className="close-button">&times;</span>
           <h1>Rename list</h1>

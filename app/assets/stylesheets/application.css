@@ -30,8 +30,10 @@ a {
   cursor: pointer;
 }
 .flex-container {
-  display: inline-block;
+  display: block;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  left: 300px;
-  bottom: 30vh;
+  background-color: rgba(239, 235, 235, 0.45);
+  z-index: 10;
 }

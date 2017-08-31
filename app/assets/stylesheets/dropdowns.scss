@@ -3,7 +3,6 @@
 }
 .view {
   display: block;
-  z-index: 1;
 }
 .lists-dropdown {
   position: relative;
@@ -15,4 +14,5 @@
   padding: 6px 12px;
   line-height: 2;
   box-shadow: 0 1px 4px 1px rgba(0,0,0,0.2);
+  z-index: 1;
 }
