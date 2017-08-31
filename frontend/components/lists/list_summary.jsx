@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Selector from '../../reducers/selectors';
 
 class ListSummary extends React.Component {
 
@@ -42,10 +43,14 @@ class ListSummary extends React.Component {
       default:
         if (this.props.currentList) {
           listName = this.props.currentList.title;
-          totalTasks = this.props.currentListIncomplete;
-          dueToday = this.props.currentListToday;
-          dueTomorrow = this.props.currentListTomorrow;
-          completed = this.props.currentListComplete;
+          totalTasks = this.props.currentList.tasks.filter(task => {
+            return(!task.completed);
+          });
+          dueToday = Selector.todayTasks(this.props.currentList.tasks);
+          dueTomorrow = Selector.tomorrowTasks(this.props.currentList.tasks);
+          completed = this.props.currentList.tasks.filter(task => {
+            return(task.completed);
+          });
         }
     }
     return (

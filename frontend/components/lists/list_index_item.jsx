@@ -34,7 +34,7 @@ class ListIndexItem extends React.Component {
     return (
       <Link to={`/app/list/${this.props.list.id}`} className="list-index-item">
         <span className="list-title">{this.props.list.title}</span>
-        <span className="num-tasks">{this.props.list.tasks.length}</span>
+        <span className="num-tasks">{this.props.list.tasks.filter(task => !task.completed).length}</span>
         <i onClick={this.toggleDrop} className="arrow list-arrow">arrow_drop_down</i>
         <container
           className={(
