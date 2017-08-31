@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import Header from './header';
 import { logout } from '../../actions/session_actions';
 import { settingsDropdown, clearUi } from '../../actions/list_actions';
+import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     ui: state.ui,
     currentUser: state.session.currentUser,
-    currentList: state.currentList,
   };
 };
 
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
