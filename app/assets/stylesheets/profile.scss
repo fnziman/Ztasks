@@ -27,6 +27,9 @@
   margin-bottom: 15px;
   padding: 5px 6px;
 }
+.profile-form input:focus {
+  border: 1px solid #3295ff;
+}
 .save-change-button {
   color: white;
   background-color: #2e8ceb;

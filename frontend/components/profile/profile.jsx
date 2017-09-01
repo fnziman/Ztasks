@@ -33,7 +33,7 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <continer className="profile-container">
+      <continer className="flex-container">
         <span onClick={this.close} className="form-background"></span>
 
         <div className="profile-form">
