@@ -9,7 +9,7 @@ class ListIndexItem extends React.Component {
 
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.toggleDrop = this.toggleDrop.bind(this);
+    this.open = this.open.bind(this);
     this.close = this.close.bind(this);
   }
   handleEdit() {
@@ -22,14 +22,9 @@ class ListIndexItem extends React.Component {
   close() {
     this.props.clearUi();
   }
-  toggleDrop() {
-    if (this.props.ui === "lists") {
-      this.props.clearCurrentList();
-      this.props.clearUi();
-    } else {
-      this.props.setCurrentList(this.props.list);
-      this.props.listsDropDown();
-    }
+  open() {
+    this.props.setCurrentList(this.props.list)
+    this.props.listsDropDown();
   }
 
 
@@ -38,19 +33,19 @@ class ListIndexItem extends React.Component {
       <Link to={`/app/list/${this.props.list.id}`} className="list-index-item">
         <span className="list-title">{this.props.list.title}</span>
         <span className="num-tasks">{this.props.list.tasks.filter(task => !task.completed).length}</span>
-        <i onClick={this.toggleDrop} className="arrow list-arrow">arrow_drop_down</i>
-        <container
-          className={
-            (this.props.ui === "lists" && this.props.currentList.id === this.props.list.id)
-            ? "drop-container view" : "hidden"}>
-          <span onClick={this.close} className="form-background"></span>
-          <div className="lists-dropdown">
-            <p onClick={this.handleEdit}>Rename list</p>
-            <Link to="/app/all">
-              <p onClick={this.handleDelete}>Remove list</p>
-            </Link>
-          </div>
-        </container>
+          <container
+            className={
+              (this.props.ui === "lists" && this.props.currentList.id === this.props.list.id)
+              ? "drop-container view" : "hidden"}>
+            <span onClick={this.close} className="form-background"></span>
+            <div className="lists-dropdown">
+              <p onClick={this.handleEdit}>Rename list</p>
+              <Link to="/app/all">
+                <p onClick={this.handleDelete}>Remove list</p>
+              </Link>
+            </div>
+          </container>
+        <i onClick={this.open} className="arrow list-arrow">arrow_drop_down</i>
       </Link>
     );
   }
