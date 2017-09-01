@@ -43,7 +43,6 @@ class Profile extends React.Component {
             <label> Username
               <input type="text" onChange={this.update('username')} value={this.state.username} />
             </label>
-            <h1>photo upload goes here</h1>
             <label> Email
               <input type="text" onChange={this.update('email')} value={this.state.email} />
             </label>

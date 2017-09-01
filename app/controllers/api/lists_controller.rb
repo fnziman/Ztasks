@@ -15,7 +15,7 @@ class Api::ListsController < ApplicationController
   end
 
   def index
-    @lists = List.all
+    @lists = current_user.lists
     render :index
   end
 

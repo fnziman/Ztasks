@@ -14,7 +14,7 @@ class Api::TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
     render :index
   end
 

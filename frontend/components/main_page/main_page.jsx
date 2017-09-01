@@ -96,7 +96,6 @@ class MainPage extends React.Component {
 
             <container className="settings-dropdown">
               <div onClick={this.props.profileForm} className="user">
-                <p className="avatar">avatar</p>
                 <div className="user-info">
                   <p className="name">{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
                   <p className="email">{this.props.currentUser.email}</p>
