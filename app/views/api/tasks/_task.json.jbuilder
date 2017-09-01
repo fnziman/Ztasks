@@ -2,9 +2,9 @@ json.extract!(task,
               :id,
               :title,
               :notes,
+              :user_id,
+              :list_id,
               :due_date,
               :completed,
-              :list_id,
-              :list,
               :time_estimate
              )

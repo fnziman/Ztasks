@@ -35,7 +35,7 @@
       }
       2: {
         id: 2,
-        title: "Pick up coffee for the buss",
+        title: "Pick up coffee for the boss",
         due_date: "5/16/2017",
         completed: false,
         time_estimate: 20,
