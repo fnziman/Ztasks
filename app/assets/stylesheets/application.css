@@ -46,3 +46,6 @@ a:focus {
   height: 100vh;
   position: absolute;
 }
+body {
+  overflow: hidden;
+}
