@@ -19,8 +19,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :lists
-  has_many :tasks,
-    through: :lists
+  has_many :tasks
 
   attr_reader :password
   after_initialize :ensure_session_token
