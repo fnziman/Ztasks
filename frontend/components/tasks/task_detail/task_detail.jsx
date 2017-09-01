@@ -9,6 +9,7 @@ class TaskDetail extends React.Component {
       title: '',
       due_date: '',
       list_id: '',
+      time_estimate: '',
       notes: '',
     };
     this.lists = this.lists.bind(this);
@@ -23,6 +24,7 @@ class TaskDetail extends React.Component {
       title: this.props.currentTask.title,
       due_date: this.props.currentTask.due_date,
       list_id: this.props.currentTask.list_id,
+      time_estimate: this.props.currentTask.time_estimate === null ? "none" : this.props.currentTask.time_estimate,
       notes: this.props.currentTask.notes,
     });
   }
@@ -32,6 +34,7 @@ class TaskDetail extends React.Component {
       title: nextProps.currentTask.title,
       due_date: nextProps.currentTask.due_date,
       list_id: nextProps.currentTask.list_id,
+      time_estimate: nextProps.currentTask.time_estimate === null ? "none" : nextProps.currentTask.time_estimate,
       notes: nextProps.currentTask.notes,
     });
   }
@@ -75,6 +78,9 @@ class TaskDetail extends React.Component {
                 <option value={0}>None</option>
                 {this.lists()}
               </select>
+          </label>
+          <label className="time-estimate">time estimate
+            <input onChange={this.update('time_estimate')}type="text" value={this.state.time_estimate}/>
           </label>
           <h1>Notes</h1>
           <input onChange={this.update('notes')} className="notes" type="text" value={this.state.notes} />

@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
 }
-.title ,.notes {
+.title ,.notes , {
   border: 1px solid transparent;
   border-radius: 3px;
   width: 80%;
@@ -33,21 +33,32 @@
   border-left: 3px solid #cccccc;
   font-size: 18px;
 }
-.title:hover,.notes:hover {
+.time-estimate input {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding-left: 5px;
+  border-left: 3px solid #cccccc;
+}
+.title:hover,.notes:hover, .time-estimate input:hover {
   border-color: #d0d3d6
 }
-.title:focus ,.notes:focus {
+.title:focus ,.notes:focus, .time-estimate input:focus {
   border: 1px solid #3295ff;
   outline: none;
 }
-.date, .list {
+.date, .list, .time-estimate {
   margin-left: 45px;
   margin-bottom: 25px;
   color: #9999a2;
   cursor: pointer;
 }
-.date input {
+.date input, .time-estimate input {
   margin-left: 45px;
+}
+.date input:focus {
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #3295ff;
 }
 .list select {
   margin-left: 45px;
