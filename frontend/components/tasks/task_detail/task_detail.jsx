@@ -17,18 +17,17 @@ class TaskDetail extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
   }
-  //
-  // componentDidMount() {
-  //   debugger
-  //   this.setState({
-  //     id: this.props.currentTask.id,
-  //     title: this.props.currentTask.title,
-  //     due_date: this.props.currentTask.due_date,
-  //     list_id: this.props.currentTask.list_id,
-  //     time_estimate: this.props.currentTask.time_estimate === null ? "none" : this.props.currentTask.time_estimate,
-  //     notes: this.props.currentTask.notes,
-  //   });
-  // }
+
+  componentDidMount() {
+    this.setState({
+      id: this.props.currentTask.id,
+      title: this.props.currentTask.title,
+      due_date: this.props.currentTask.due_date,
+      list_id: this.props.currentTask.list_id,
+      time_estimate: this.props.currentTask.time_estimate === null ? "none" : this.props.currentTask.time_estimate,
+      notes: this.props.currentTask.notes,
+    });
+  }
   componentWillReceiveProps(nextProps) {
 
     this.setState({
