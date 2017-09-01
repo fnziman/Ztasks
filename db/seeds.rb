@@ -13,6 +13,7 @@ demo_user = User.new(
   email: "demo@login.com",
   password: "demopassword"
 )
+
 demo_user.save!
 
 List.delete_all
@@ -66,7 +67,7 @@ pickup_drycleaning = Task.new(
                     title: "pick up dry cleaning",
                     notes: "check and make sure they got the stain on my shirt",
                     due_date: Date.parse('2017-09-02'),
-                    list_id: 0,
+                    list_id: personal.id,
                     completed: false,
                     time_estimate: 5
                   )

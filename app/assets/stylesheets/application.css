@@ -49,3 +49,6 @@ a:focus {
 body {
   overflow: hidden;
 }
+input:focus {
+  outline: none;
+}

@@ -16,5 +16,5 @@
 class Task < ActiveRecord::Base
   validates :title, presence: true
 
-  # belongs_to :list
+  belongs_to :list #not sure what to do about This
 end

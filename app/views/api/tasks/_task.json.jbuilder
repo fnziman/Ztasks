@@ -5,5 +5,6 @@ json.extract!(task,
               :due_date,
               :completed,
               :list_id,
+              :list,
               :time_estimate
              )
