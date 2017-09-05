@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import ListEditForm from './list_edit_form';
 
 class ListIndexItem extends React.Component {
@@ -23,7 +23,7 @@ class ListIndexItem extends React.Component {
     this.props.clearUi();
   }
   open() {
-    this.props.setCurrentList(this.props.list)
+    // this.props.setCurrentList(this.props.list);
     this.props.listsDropDown();
   }
 
@@ -32,10 +32,13 @@ class ListIndexItem extends React.Component {
     return (
       <Link to={`/app/list/${this.props.list.id}`} className="list-index-item">
         <span className="list-title">{this.props.list.title}</span>
-        <span className="num-tasks">{this.props.list.tasks.filter(task => !task.completed).length}</span>
+        <span className="num-tasks">
+          {this.props.allTasks.filter(task => task.list_id === this.props.list.id).length}
+        </span>
           <container
             className={
-              (this.props.ui === "lists" && this.props.currentList.id === this.props.list.id)
+              (this.props.ui === "lists" && Number(this.props.location.pathname.slice(-1)[0])
+ === this.props.list.id)
               ? "drop-container view" : "hidden"}>
             <span onClick={this.close} className="form-background"></span>
             <div className="lists-dropdown">
@@ -51,4 +54,4 @@ class ListIndexItem extends React.Component {
   }
 }
 
-export default ListIndexItem;
+export default withRouter(ListIndexItem);

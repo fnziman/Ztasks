@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import HeaderContainer from '../header/header_container';
 import Sidebar from '../sidebar/sidebar';
 import ListForm from '../lists/list_form';
@@ -9,7 +10,6 @@ import TomorrowTasksContainer from '../tasks/tomorrow_tasks_container';
 import ThisWeekTasksContainer from '../tasks/this_week_tasks_container';
 import ListTasksContainer from '../tasks/list_tasks_container';
 import TaskDetailContainer from '../tasks/task_detail/task_detail_container';
-import { Route, Switch } from 'react-router-dom';
 import ListSummaryContainer from '../lists/list_summary_container';
 import SearchedTasksContainer from '../search/searched_tasks_container';
 import SearchSummaryContainer from '../search/search_summary_container';
@@ -40,8 +40,9 @@ class MainPage extends React.Component {
           clearUi={this.props.clearUi}
           currentUser={this.props.currentUser} />;
       case "edit":
+
         return <ListEditForm className="list-edit-form"
-          currentList={this.props.currentList}
+          currentList={this.props.lists[this.props.location.pathname.split('/').slice(-1)[0]]}
           clearCurrentList={this.props.clearCurrentList}
           clearUi={this.props.clearUi}
           editList={this.props.editList} />;

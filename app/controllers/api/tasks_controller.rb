@@ -1,7 +1,7 @@
 class Api::TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
-    @task.list_id = task_params[:list_id]
+    @task.list_id = task_params[:list_id] #what if there isnt a list id does it default to null?
     if @task.save
       render :show
     else
@@ -36,6 +36,6 @@ class Api::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :list_id, :notes, :due_date, :completed, :time_estimate)
+    params.require(:task).permit(:title, :user_id, :list_id, :notes, :due_date, :completed, :time_estimate)
   end
 end

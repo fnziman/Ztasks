@@ -7,8 +7,8 @@ const mapStateToProps = (state, ownProps) => {
   const allTasks = Selector.TasksAsArray(state);
   return {
     currentList: state.lists[ownProps.match.params.listId],
-    allTasksIncomplete: allTasks.filter(task => !task.completed),
-    allTasksComplete: allTasks.filter(task => task.completed),
+    allTasksIncomplete: Selector.incomplete(allTasks),
+    allTasksComplete: Selector.complete(allTasks),
     todayTasksIncomplete: Selector.todayTasks(allTasks).filter(task => !task.completed),
     todayTasksComplete: Selector.todayTasks(allTasks).filter(task => task.completed),
     tomorrowTasksIncomplete: Selector.tomorrowTasks(allTasks).filter(task => !task.completed),

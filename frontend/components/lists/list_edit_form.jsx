@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class ListEditForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class ListEditForm extends React.Component {
   }
   close() {
     this.props.clearUi();
-    this.props.clearCurrentList();
+    // this.props.clearCurrentList();
   }
 
   updateTitle(e) {
@@ -35,7 +36,7 @@ class ListEditForm extends React.Component {
     return (
       <container className="flex-container">
         <span onClick={this.close} className="form-background"></span>
-        
+
         <div className="list-edit-form">
           <span onClick={this.close} className="close-button">&times;</span>
           <h1>Rename list</h1>
@@ -54,4 +55,4 @@ class ListEditForm extends React.Component {
   }
 }
 
-export default ListEditForm;
+export default withRouter(ListEditForm);

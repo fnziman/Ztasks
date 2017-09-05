@@ -21,7 +21,7 @@ class TasksIndexItem extends React.Component {
           <div onClick={this.toggleCompleted} className="checkbox"></div>
         </div>
         <div>
-          <Link to={`${this.props.url}/${this.props.task.id}`}>
+          <Link to={this.props.url.split('/')[1] === "search" ? `/app/all/${this.props.task.id}` : `${this.props.url}/${this.props.task.id}`}>
             <div className="task-link">{this.props.task.title}</div>
           </Link>
         </div>

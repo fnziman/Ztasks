@@ -78,12 +78,9 @@ brakes = Task.new(
 pickup_drycleaning = Task.new(
                     title: "pick up dry cleaning",
                     notes: "check and make sure they got the stain on my shirt",
-<<<<<<< HEAD
                     due_date: Date.today + 4,
                     list_id: personal.id,
-=======
                     due_date: Date.parse('2017-09-02'),
->>>>>>> fix-user_table
                     completed: false,
                     time_estimate: 5,
                     user_id: demo_user.id

@@ -2,23 +2,16 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TasksIndex from './tasks_index';
 import { fetchTasks, createTask, editTask} from '../../actions/task_actions';
-import { TasksAsArray } from '../../reducers/selectors';
+import * as Selector from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-  const allTasks = TasksAsArray(state);
-  let incomplete = [];
-  let complete = [];
-  allTasks.forEach (task => {
-    if (task.completed) {
-      complete.push(task);
-    } else {
-      incomplete.push(task);
-    }
-  });
+  const allTasks = Selector.TasksAsArray(state);
+  const complete = Selector.complete(allTasks);
+  const incomplete = Selector.incomplete(allTasks);
   return {
-    currentTask: state.tasks[ownProps.match.params.taskId],
-    listId: null,
-    dueDate: null,
+    // currentTask: state.tasks[ownProps.match.params.taskId],
+    // listId: null,
+    // dueDate: null,
     ui: state.ui,
     incomplete: incomplete,
     complete: complete,

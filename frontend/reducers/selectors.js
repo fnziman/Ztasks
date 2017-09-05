@@ -8,7 +8,8 @@ export const TasksAsArray = ({ tasks }) => {
     Object.keys(tasks).map(key => tasks[key])
   );
 };
-const today = () => {
+
+export const today = () => {
   let currentDate = new Date();
   let year = currentDate.getFullYear();
   let month = currentDate.getMonth();
@@ -17,11 +18,11 @@ const today = () => {
   }
   let date = currentDate.getDate();
   if (date < 10) {
-    date = '0' + (date + 1);
+    date = '0' + (date);
   }
   return (year + "-" + month + "-" + date);
 };
-const tomorrow = () => {
+export const tomorrow = () => {
   let currentDate = new Date();
   currentDate.setDate(currentDate.getDate() + 1); //set to tomorrow
   let year = currentDate.getFullYear();
@@ -31,11 +32,11 @@ const tomorrow = () => {
   }
   let date = currentDate.getDate();
   if (date < 10) {
-    date = '0' + (date + 1);
+    date = '0' + (date);
   }
   return (year + "-" + month + "-" + date);
 };
-const thisWeek = () => {
+export const thisWeek = () => {
   let currentDate = new Date();
   currentDate.setDate(currentDate.getDate() + 6); //set to tomorrow
   let year = currentDate.getFullYear();
@@ -45,7 +46,7 @@ const thisWeek = () => {
   }
   let date = currentDate.getDate();
   if (date < 10) {
-    date = '0' + (date + 1);
+    date = '0' + (date);
   }
   return (year + "-" + month + "-" + date);
 };
@@ -72,4 +73,13 @@ export const thisWeekTasks = (tasks) => {
     return (task.due_date <= thisWeek());
   });
   return result;
+};
+export const complete = tasks => {
+  return tasks.filter(task => task.completed);
+};
+export const incomplete = tasks => {
+  return tasks.filter(task => !task.completed);
+};
+export const listTasks = (tasks, listId) => {
+  return tasks.filter(task => task.list_id === listId);
 };

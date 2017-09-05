@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Header from './header';
 import { logout } from '../../actions/session_actions';
-import { settingsDropdown, clearUi } from '../../actions/list_actions';
+import { settingsDropdown, clearUi } from '../../actions/ui_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {

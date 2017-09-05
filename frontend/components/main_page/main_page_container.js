@@ -1,21 +1,28 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import MainPage from './main_page';
 import { logout, editUser } from '../../actions/session_actions';
-import { createForm,
-         createList,
-         editForm,
-         editList,
-         clearCurrentList,
-         deleteList,
-         listsDropDown,
-         settingsDropdown,
-         clearUi,
-         profileForm } from '../../actions/list_actions';
+import {
+  createList,
+  editList,
+  deleteList,
+        } from '../../actions/list_actions';
+import {
+  createForm,
+  editForm,
+  //  clearCurrentList,
+  listsDropDown,
+  settingsDropdown,
+  clearUi,
+  profileForm
+} from '../../actions/ui_actions';
+import { ListsAsArray } from '../../reducers/selectors';
 
-const mapStateToProps = state => {
+
+const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
-    currentList: state.currentList,
+    lists: ListsAsArray(state),
     ui: state.ui,
   };
 };
@@ -27,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
     createList: (list) => dispatch(createList(list)),
     editForm: () => dispatch(editForm()),
     editList: listId => dispatch(editList(listId)),
-    clearCurrentList: () => dispatch(clearCurrentList()),
+    // clearCurrentList: () => dispatch(clearCurrentList()),
     deleteList: listId => dispatch(deleteList(listId)),
     listsDropDown: () => dispatch(listsDropDown()),
     settingsDropdown: () => dispatch(settingsDropdown()),
@@ -37,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainPage));

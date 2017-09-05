@@ -1,27 +1,30 @@
 import { connect } from 'react-redux';
-import ListIndex from './list_index';
-import { fetchLists,
-         createForm,
-         createList,
-         currentList,
-         setCurrentList,
-         editForm,
-         editList,
-         listsDropDown,
-         clearUi,
-         clearCurrentList,
-         deleteList } from '../../actions/list_actions';
-import * as Selector from '../../reducers/selectors';
 import { withRouter } from 'react-router-dom';
+import ListIndex from './list_index';
+import {
+  fetchLists,
+  createList,
+  // currentList,
+  editList,
+  // setCurrentList,
+  // clearCurrentList,
+  deleteList
+} from '../../actions/list_actions';
+import {
+  createForm,
+  editForm,
+  listsDropDown,
+  clearUi,
+} from '../../actions/ui_actions';
+import * as Selector from '../../reducers/selectors';
 
-const mapStateToProps = state => {
-  const allIncompleteTasks = Selector.TasksAsArray(state).filter(task => {
-    return(!task.completed);
-  });
-
+const mapStateToProps = (state, ownProps) => {
+  const allTasks = Selector.TasksAsArray(state);
+  const allIncompleteTasks = Selector.incomplete(allTasks);
   return {
-    currentList: state.currentList,
+    // currentList: state.currentList,
     ui: state.ui,
+    tasks: allIncompleteTasks,
     lists: Selector.ListsAsArray(state),
     currentUser: state.session.currentUser,
     allTasks: allIncompleteTasks,
@@ -36,12 +39,12 @@ const mapDispatchToProps =  dispatch => {
     fetchLists: () => dispatch(fetchLists()),
     createForm: () => dispatch(createForm()),
     createList: list => dispatch(createList(list)),
-    setCurrentList: listId => dispatch(setCurrentList(listId)),
+    // setCurrentList: listId => dispatch(setCurrentList(listId)),
     editForm: () => dispatch(editForm()),
     editList: listId => dispatch(editList(listId)),
     listsDropDown: () => dispatch(listsDropDown()),
     clearUi: () => dispatch(clearUi()),
-    clearCurrentList: () => dispatch(clearCurrentList()),
+    // clearCurrentList: () => dispatch(clearCurrentList()),
     deleteList: listId => dispatch(deleteList(listId)),
   };
 };

@@ -15,12 +15,8 @@ class ListSummary extends React.Component {
       case "all":
         listName = "all tasks";
         totalTasks = this.props.allTasksIncomplete;
-        dueToday = this.props.allTasksIncomplete.filter(task => {
-          return(this.props.todayTasksIncomplete.includes(task));
-        });
-        dueTomorrow = this.props.allTasksIncomplete.filter(task => {
-          return(this.props.tomorrowTasksIncomplete.includes(task));
-        });
+        dueToday = this.props.todayTasksIncomplete;
+        dueTomorrow = this.props.tomorrowTasksIncomplete;
         completed = this.props.allTasksComplete;
         break;
       case "today":
@@ -42,15 +38,12 @@ class ListSummary extends React.Component {
         break;
       default:
         if (this.props.currentList) {
+          const listId = this.props.currentList.id;
           listName = this.props.currentList.title;
-          totalTasks = this.props.currentList.tasks.filter(task => {
-            return(!task.completed);
-          });
-          dueToday = Selector.todayTasks(this.props.currentList.tasks);
-          dueTomorrow = Selector.tomorrowTasks(this.props.currentList.tasks);
-          completed = this.props.currentList.tasks.filter(task => {
-            return(task.completed);
-          });
+          totalTasks = Selector.listTasks(this.props.allTasksIncomplete, listId);
+          dueToday = Selector.listTasks(this.props.todayTasksIncomplete, listId);
+          dueTomorrow = Selector.listTasks(this.props.tomorrowTasksIncomplete, listId);
+          completed = Selector.listTasks(this.props.allTasksComplete, listId);
         }
     }
     return (

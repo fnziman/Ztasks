@@ -1,6 +1,6 @@
 import React from 'react';
 import ListIndexItem from './list_index_item';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class ListIndex extends React.Component {
   constructor(props) {
@@ -34,6 +34,7 @@ class ListIndex extends React.Component {
         <ListIndexItem
           key={list.id}
           list={list}
+          allTasks={this.props.tasks}
           ui={this.props.ui}
           currentList={this.props.currentList}
           setCurrentList={this.props.setCurrentList}
@@ -85,4 +86,4 @@ class ListIndex extends React.Component {
   }
 }
 
-export default ListIndex;
+export default withRouter(ListIndex);

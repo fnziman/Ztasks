@@ -1,4 +1,4 @@
-import { CHANGE_UI } from '../actions/list_actions';
+import { CHANGE_UI } from '../actions/ui_actions';
 
 const uiReducer = (state = null, action) => {
   Object.freeze(state);
@@ -11,3 +11,5 @@ const uiReducer = (state = null, action) => {
 };
 
 export default uiReducer;
+
+// not sure what i want to do about this

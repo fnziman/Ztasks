@@ -34,7 +34,8 @@ class TasksIndex extends React.Component {
     const task = {
       title: this.state.title,
       due_date: this.props.dueDate,
-      list_id: this.props.listId
+      list_id: this.props.listId,
+      user_id: this.props.currentUser.id,
     };
     this.setState({ title: "Add a task..." });
     this.props.createTask(task);
