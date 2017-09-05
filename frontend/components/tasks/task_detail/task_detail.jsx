@@ -48,7 +48,7 @@ class TaskDetail extends React.Component {
     return this.props.lists.map(list => {
       return (
         <option
-          key={list.id} value={list.id}>
+          key={list.id} value={list.id} selected={list.id === this.state.list_id ? true : false}>
           {list.title}
         </option>
       );
