@@ -46,9 +46,6 @@ a:focus {
   height: 100vh;
   position: absolute;
 }
-body {
-  overflow: hidden;
-}
 input:focus {
   outline: none;
 }

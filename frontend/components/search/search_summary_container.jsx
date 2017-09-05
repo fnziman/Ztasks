@@ -10,15 +10,9 @@ const mapStateToProps = (state, ownProps) => {
   let searchedTasks = allTasks.filter(task => {
     return(task.title.toLowerCase().includes(searchTerm));
   });
-  let incomplete = [];
-  let complete = [];
-  searchedTasks.forEach (task => {
-    if (task.completed) {
-      complete.push(task);
-    } else {
-      incomplete.push(task);
-    }
-  });
+  const incomplete = Selector.incomplete(searchedTasks);
+  const complete = Selector.complete(searchedTasks);
+
   return {
     ui: state.ui,
     incomplete: incomplete,

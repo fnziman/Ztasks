@@ -6,8 +6,7 @@ class SearchedTasks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Add a task...',
-      dueDate: this.props.dueDate,
+      title: '',
       showing: "incomplete"
     };
 
@@ -33,10 +32,9 @@ class SearchedTasks extends React.Component {
     e.preventDefault();
     const task = {
       title: this.state.title,
-      due_date: this.props.dueDate,
-      list_id: this.props.listId
+      user_id: this.props.currentUser.id,
     };
-    this.setState({ title: "Add a task..." });
+    this.setState({ title: "" });
     this.props.createTask(task);
   }
 
@@ -72,7 +70,7 @@ class SearchedTasks extends React.Component {
         </div>
         <div className="add-task">
           <form>
-          <input className="add-task-input" type="text" onChange={this.updateInput} value={this.state.title} />
+          <input className="add-task-input" type="text" onChange={this.updateInput} placeholder="Add a task..." value={this.state.title} />
             <br/>
             <div className="add-task-options">
               <input type="button" />

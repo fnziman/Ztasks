@@ -6,19 +6,13 @@ import * as Selector from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const allTasks = Selector.TasksAsArray(state);
-  const searchTerm = ownProps.match.params.searchTerm;
-  let searchedTasks = allTasks.filter(task => {
+  const searchTerm = ownProps.match.params.searchTerm.toLowerCase();
+  const searchedTasks = allTasks.filter(task => {
     return(task.title.toLowerCase().includes(searchTerm));
   });
-  let incomplete = [];
-  let complete = [];
-  searchedTasks.forEach (task => {
-    if (task.completed) {
-      complete.push(task);
-    } else {
-      incomplete.push(task);
-    }
-  });
+  const incomplete = Selector.incomplete(searchedTasks);
+  const complete = Selector.complete(searchedTasks);
+
   return {
     ui: state.ui,
     incomplete: incomplete,

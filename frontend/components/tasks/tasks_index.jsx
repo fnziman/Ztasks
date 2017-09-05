@@ -6,7 +6,7 @@ class TasksIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Add a task...',
+      title: '',
       dueDate: this.props.dueDate,
       showing: "incomplete"
     };
@@ -37,7 +37,7 @@ class TasksIndex extends React.Component {
       list_id: this.props.listId,
       user_id: this.props.currentUser.id,
     };
-    this.setState({ title: "Add a task..." });
+    this.setState({ title: '' });
     this.props.createTask(task);
   }
 
@@ -74,7 +74,7 @@ class TasksIndex extends React.Component {
         </div>
         <div className="add-task">
           <form>
-          <input className="add-task-input" type="text" onChange={this.updateInput} value={this.state.title} />
+          <input className="add-task-input" type="text" onChange={this.updateInput} placeholder="Add a task..." value={this.state.title} />
             <br/>
             <div className="add-task-options">
               <input type="button" />
