@@ -42,7 +42,6 @@ class ListIndex extends React.Component {
   }
 
   render() {
-    debugger
     const lists = this.props.lists.map(list => {
       return (
         <div key={list.id}>
