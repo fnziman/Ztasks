@@ -42,6 +42,7 @@ class ListIndex extends React.Component {
   }
 
   render() {
+    debugger
     const lists = this.props.lists.map(list => {
       return (
         <div key={list.id}>
@@ -60,7 +61,7 @@ class ListIndex extends React.Component {
             deleteList={this.props.deleteList} />
             <container
               className={
-                (this.props.ui === "lists" && Number(this.props.location.pathname.slice(-1)[0]) === list.id)
+                (this.props.ui === "lists" && this.props.location.pathname.slice(-1)[0] == list.id)
                 ? "drop-container view" : "hidden"}>
               <span onClick={this.close} className="form-background"></span>
               <div className="lists-dropdown">
