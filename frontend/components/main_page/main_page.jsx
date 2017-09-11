@@ -37,19 +37,18 @@ class MainPage extends React.Component {
       case "create":
         return <ListForm className="list-form"
           createList={this.props.createList}
-          clearUi={this.props.clearUi}
+          clearUi={this.close}
           currentUser={this.props.currentUser} />;
       case "edit":
-
         return <ListEditForm className="list-edit-form"
-          currentList={this.props.lists[this.props.location.pathname.split('/').slice(-1)[0]]}
+          currentList={this.props.currentList}
           clearCurrentList={this.props.clearCurrentList}
-          clearUi={this.props.clearUi}
+          clearUi={this.close}
           editList={this.props.editList} />;
-        case "profile":
+      case "profile":
         return <Profile className="profile-form"
           currentUser={this.props.currentUser}
-          clearUi={this.props.clearUi}
+          clearUi={this.close}
           editProfile={this.props.editProfile} />;
       default:
         return null;

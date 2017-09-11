@@ -10,6 +10,10 @@ class Header extends React.Component {
     this.updateSearch = this.updateSearch.bind(this);
     this.search = this.search.bind(this);
   }
+  toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.className = sidebar.className === "hidden" ? "sidebar-container" : "hidden";
+  }
   showSettings() {
     if (this.props.ui === "settings") {
       this.props.clearUi();
@@ -31,7 +35,7 @@ class Header extends React.Component {
     return (
       <container className="header">
         <container className="left-header-container">
-          <i className="menu">menu</i>
+          <i onClick={this.toggleSidebar} className="menu">menu</i>
         </container>
         <container className="middle-header-container">
           <div className="searchbar-container">

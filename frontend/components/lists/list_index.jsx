@@ -8,10 +8,20 @@ class ListIndex extends React.Component {
     this.state = { showLists: true, showInbox: true };
     this.toggleLists = this.toggleLists.bind(this);
     this.toggleInbox = this.toggleInbox.bind(this);
+    this.close = this.close.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchLists();
+  }
+  handleEdit() {
+    this.props.editForm();
+  }
+  handleDelete() {
+    this.props.deleteList(this.props.currentList.id);
+    this.props.clearUi();
   }
   toggleLists() {
     if (this.state.showLists) {
@@ -27,23 +37,40 @@ class ListIndex extends React.Component {
       this.setState({ showInbox: true });
     }
   }
+  close() {
+    this.props.clearUi();
+  }
 
   render() {
     const lists = this.props.lists.map(list => {
       return (
-        <ListIndexItem
-          key={list.id}
-          list={list}
-          allTasks={this.props.tasks}
-          ui={this.props.ui}
-          currentList={this.props.currentList}
-          setCurrentList={this.props.setCurrentList}
-          editForm={this.props.editForm}
-          editList={this.props.editList}
-          listsDropDown={this.props.listsDropDown}
-          clearUi={this.props.clearUi}
-          clearCurrentList={this.props.clearCurrentList}
-          deleteList={this.props.deleteList} />
+        <div key={list.id}>
+          <ListIndexItem
+            key={list.id}
+            list={list}
+            allTasks={this.props.tasks}
+            ui={this.props.ui}
+            currentList={this.props.currentList}
+            setCurrentList={this.props.setCurrentList}
+            editForm={this.props.editForm}
+            editList={this.props.editList}
+            listsDropDown={this.props.listsDropDown}
+            clearUi={this.props.clearUi}
+            clearCurrentList={this.props.clearCurrentList}
+            deleteList={this.props.deleteList} />
+            <container
+              className={
+                (this.props.ui === "lists" && Number(this.props.location.pathname.slice(-1)[0]) === list.id)
+                ? "drop-container view" : "hidden"}>
+              <span onClick={this.close} className="form-background"></span>
+              <div className="lists-dropdown">
+                <p onClick={this.handleEdit}>Rename list</p>
+                <Link to="/app/all">
+                  <p onClick={this.handleDelete}>Remove list</p>
+                </Link>
+              </div>
+            </container>
+        </div>
       );
     });
 

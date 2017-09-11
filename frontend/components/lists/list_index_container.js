@@ -4,9 +4,8 @@ import ListIndex from './list_index';
 import {
   fetchLists,
   createList,
-  // currentList,
   editList,
-  // setCurrentList,
+  setCurrentList,
   // clearCurrentList,
   deleteList
 } from '../../actions/list_actions';
@@ -22,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
   const allTasks = Selector.TasksAsArray(state);
   const allIncompleteTasks = Selector.incomplete(allTasks);
   return {
-    // currentList: state.currentList,
+    currentList: state.currentList,
     ui: state.ui,
     tasks: allIncompleteTasks,
     lists: Selector.ListsAsArray(state),
@@ -39,7 +38,7 @@ const mapDispatchToProps =  dispatch => {
     fetchLists: () => dispatch(fetchLists()),
     createForm: () => dispatch(createForm()),
     createList: list => dispatch(createList(list)),
-    // setCurrentList: listId => dispatch(setCurrentList(listId)),
+    setCurrentList: list => dispatch(setCurrentList(list)),
     editForm: () => dispatch(editForm()),
     editList: listId => dispatch(editList(listId)),
     listsDropDown: () => dispatch(listsDropDown()),

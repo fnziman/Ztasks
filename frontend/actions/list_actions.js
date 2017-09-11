@@ -3,7 +3,7 @@ import * as APIUtil from '../util/lists_util';
 export const RECEIVE_LISTS = "RECEIVE_LISTS";
 export const RECEIVE_SINGLE_LIST = "RECEIVE_SINGLE_LIST";
 export const REMOVE_LIST = "REMOVE_LIST";
-// export const UPDATE_LIST = "UPDATE_LIST";
+export const UPDATE_LIST = "UPDATE_LIST";
 export const RECEIVE_CURRENT_LIST = "RECEIVE_CURRENT_LIST";
 
 export const receiveLists = lists => {

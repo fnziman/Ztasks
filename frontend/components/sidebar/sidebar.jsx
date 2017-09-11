@@ -3,7 +3,7 @@ import ListIndexContainer from '../lists/list_index_container';
 
 const Sidebar = () => {
   return (
-    <container className="sidebar-container">
+    <container id="sidebar" className="sidebar-container">
       <container className="logo">
         <p>Ztasks</p>
       </container>

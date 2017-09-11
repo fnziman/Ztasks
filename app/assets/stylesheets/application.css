@@ -41,9 +41,6 @@ a:focus {
   background-color: rgba(239, 235, 235, 0.45);
 }
 .drop-container {
-  display: block;
-  width: 100vw;
-  height: 100vh;
   position: absolute;
 }
 input:focus {

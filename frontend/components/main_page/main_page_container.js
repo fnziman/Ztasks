@@ -21,6 +21,7 @@ import { ListsAsArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    currentList: state.currentList,
     currentUser: state.session.currentUser,
     lists: ListsAsArray(state),
     ui: state.ui,
