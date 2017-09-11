@@ -60,7 +60,7 @@ class ListIndex extends React.Component {
             deleteList={this.props.deleteList} />
             <container
               className={
-                (this.props.ui === "lists" && this.props.location.pathname.slice(-1)[0] == list.id)
+                (this.props.ui === "lists" && this.props.pathId == list.id)
                 ? "drop-container view" : "hidden"}>
               <span onClick={this.close} className="form-background"></span>
               <div className="lists-dropdown">

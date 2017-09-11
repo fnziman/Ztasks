@@ -21,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
   const allTasks = Selector.TasksAsArray(state);
   const allIncompleteTasks = Selector.incomplete(allTasks);
   return {
+    pathId: Number(ownProps.location.pathname.slice(-1)[0]),
     currentList: state.currentList,
     ui: state.ui,
     tasks: allIncompleteTasks,
