@@ -17,12 +17,16 @@ var prodPlugins = [
   })
 ];
 
+plugins = plugins.concat(
+  process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
+)
+
 module.exports = {
   entry: './frontend/tasks.jsx',
   output: {
     filename: './app/assets/javascripts/bundle.js',
   },
-  pluigns: plugins,
+  plugins: plugins,
   module: {
     loaders: [
       {
