@@ -43,6 +43,8 @@ class ListIndex extends React.Component {
 
   render() {
     const lists = this.props.lists.map(list => {
+      let klass = (this.props.ui === "lists" && this.props.pathId == list.id) ?
+        "drop-container view" : "hidden";
       return (
         <div key={list.id}>
           <ListIndexItem
@@ -59,9 +61,7 @@ class ListIndex extends React.Component {
             clearCurrentList={this.props.clearCurrentList}
             deleteList={this.props.deleteList} />
             <container
-              className={
-                (this.props.ui === "lists" && this.props.pathId == list.id)
-                ? "drop-container view" : "hidden"}>
+              className={klass}>
               <span onClick={this.close} className="form-background"></span>
               <div className="lists-dropdown">
                 <p onClick={this.handleEdit}>Rename list</p>
