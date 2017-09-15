@@ -38,7 +38,9 @@ class TasksIndex extends React.Component {
       user_id: this.props.currentUser.id,
     };
     this.setState({ title: '' });
-    this.props.createTask(task);
+    if (task.title !== '') {
+      this.props.createTask(task);
+    }
   }
 
   render() {
@@ -73,12 +75,12 @@ class TasksIndex extends React.Component {
             className={this.state.showing === "complete" ? "showing" : ""}>Completed</span>
         </div>
         <div className="add-task">
-          <form>
+          <form onSubmit={this.handleSubmit}>
           <input className="add-task-input" type="text" onChange={this.updateInput} placeholder="Add a task..." value={this.state.title} />
             <br/>
             <div className="add-task-options">
               <input type="button" />
-              <input className="add-task-button" type="submit" onClick={this.handleSubmit} defaultValue="Add Task" />
+              <input className="add-task-button" type="submit" defaultValue="Add Task" />
             </div>
           </form>
         </div>

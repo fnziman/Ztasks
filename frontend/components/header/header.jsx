@@ -27,7 +27,8 @@ class Header extends React.Component {
   updateSearch(e) {
     this.setState({ search: e.target.value });
   }
-  search() {
+  search(e) {
+    e.preventDefault();
     this.props.history.push(`/search/${this.state.search}`);
   }
 
@@ -43,12 +44,9 @@ class Header extends React.Component {
             <form onSubmit={this.search} className="searchbar">
               <input onChange={this.updateSearch} value={this.state.search}/>
             </form>
-            <i className="arrow searchbar-arrow">arrow_drop_down</i>
           </div>
         </container>
         <container className="right-header-container">
-          <i className="cloud">cloud_done</i>
-          <i className="notifications">notifications_none</i>
           <div onClick={this.showSettings} className="settings">
             <i>settings</i>
             <i className="arrow">arrow_drop_down</i>
