@@ -1,6 +1,6 @@
 # Ztasks
 
-[Ztasks](ztasks.herokuapp.com)
+[Ztasks](http://ztasks.herokuapp.com)
 
 Ztasks is a web app clone of Remember the Milk. It uses Ruby on Rails as the backend, a PostgreSQL database, and React.js with a Redux architectural framework as the frontend.
 
