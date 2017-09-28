@@ -4,18 +4,20 @@
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   height: 100vh;
 }
-header {
-  display: flex !important;
-  justify-content: flex-end;
+.greeting-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
   background-color: #0060bf;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
   height: 114px;
   padding: 0 20px;
 }
-.greeting-buttons {
-  padding-right: 10%;
+.greeting-logo {
+  align-self: center;
+  font-family: 'Rock Salt';
+  font-size: 37px;
+  color: white;
 }
 .greeting-button {
   font-size: 16px;
@@ -23,7 +25,7 @@ header {
   color: white;
   background-color: inherit;
   padding: 5px;
-  margin: 10px;
+  margin-left: 20px;
   border-radius: 4px;
 }
 

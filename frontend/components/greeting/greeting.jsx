@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import header
 
 class Greeting extends React.Component {
   render() {
     return (
       <div className="greeting-container">
-        <header>
+        <header className="greeting-header">
+          <container className="greeting-logo">
+            <p>Ztasks</p>
+          </container>
           <div className="greeting-buttons">
             <Link className="greeting-button" to="/login">Log in</Link>
             <Link className="greeting-button" to="/signup">Sign up for free</Link>

@@ -49,7 +49,11 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="container">
-        <section className="blue"/>
+        <section className="blue">
+          <container className="auth-logo">
+            <p>Ztasks</p>
+          </container>
+        </section>
         <div className="login-form-container">
           <br/>
           <div className="login-form-box">

@@ -48,7 +48,11 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="container">
-        <section className="blue"/>
+        <section className="blue">
+          <container className="auth-logo">
+            <p>Ztasks</p>
+          </container>
+        </section>
         <div className="signup-form-container">
           <br/>
           <form onSubmit={this.handleSubmit} className="signup-form-box">

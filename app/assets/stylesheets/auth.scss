@@ -11,6 +11,13 @@
 .blue {
   background-color: #0060bf;
   width: 50%;
+  display: flex;
+}
+.auth-logo {
+  font-family: 'Rock Salt';
+  font-size: 64px;
+  color: white;
+  margin: auto;
 }
 .link-button {
   display: block;
