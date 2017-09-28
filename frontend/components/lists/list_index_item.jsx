@@ -13,6 +13,7 @@ class ListIndexItem extends React.Component {
     this.props.clearUi();
   }
   open() {
+    console.log('opening')
     this.props.setCurrentList(this.props.list);
     this.props.listsDropDown();
   }
