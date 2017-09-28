@@ -20,8 +20,10 @@ import * as Selector from '../../reducers/selectors';
 const mapStateToProps = (state, ownProps) => {
   const allTasks = Selector.TasksAsArray(state);
   const allIncompleteTasks = Selector.incomplete(allTasks);
+  const tempSolution = ownProps.location.pathname.split('/');
+  const pathId = Number(tempSolution[tempSolution.length - 1]);
   return {
-    pathId: Number(ownProps.location.pathname.slice(-1)[0]),
+    pathId,
     currentList: state.currentList,
     ui: state.ui,
     tasks: allIncompleteTasks,

@@ -43,8 +43,6 @@ class ListIndex extends React.Component {
 
   render() {
     const lists = this.props.lists.map(list => {
-      console.log('pathId', this.props.pathId)
-      console.log('listID', list.id)
       let klass = (this.props.ui === "lists" && this.props.pathId == list.id) ?
         "drop-container view" : "hidden";
       return (
