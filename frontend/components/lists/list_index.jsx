@@ -43,6 +43,8 @@ class ListIndex extends React.Component {
 
   render() {
     const lists = this.props.lists.map(list => {
+      console.log('pathId', this.props.pathId)
+      console.log('listID', list.id)
       let klass = (this.props.ui === "lists" && this.props.pathId == list.id) ?
         "drop-container view" : "hidden";
       return (
@@ -60,7 +62,7 @@ class ListIndex extends React.Component {
             clearUi={this.props.clearUi}
             clearCurrentList={this.props.clearCurrentList}
             deleteList={this.props.deleteList} />
-            <container
+          <div
               className={klass}>
               <span onClick={this.close} className="form-background"></span>
               <div className="lists-dropdown">
@@ -69,7 +71,7 @@ class ListIndex extends React.Component {
                   <p onClick={this.handleDelete}>Remove list</p>
                 </Link>
               </div>
-            </container>
+            </div>
         </div>
       );
     });

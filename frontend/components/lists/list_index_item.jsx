@@ -13,14 +13,12 @@ class ListIndexItem extends React.Component {
     this.props.clearUi();
   }
   open() {
-    console.log("opening", this.props.list)
     this.props.setCurrentList(this.props.list);
     this.props.listsDropDown();
   }
 
 
   render() {
-    console.log(this.props.list)
     return (
       <Link to={`/app/list/${this.props.list.id}`} className="list-index-item">
         <span className="list-title">{this.props.list.title}</span>
