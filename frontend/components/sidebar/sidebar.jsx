@@ -1,12 +1,13 @@
 import React from 'react';
 import ListIndexContainer from '../lists/list_index_container';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
     <container id="sidebar" className="sidebar-container">
-      <container className="logo">
+      <Link to="/app/all" className="logo">
         <p>Ztasks</p>
-      </container>
+      </Link>
       <ListIndexContainer/>
     </container>
   );
