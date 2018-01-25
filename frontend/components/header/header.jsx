@@ -12,7 +12,9 @@ class Header extends React.Component {
   }
   toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
-    sidebar.className = sidebar.className === "hidden" ? "sidebar-container" : "hidden";
+    const style = window.getComputedStyle(sidebar, null);
+    const display = style.display === 'none' ? 'flex' : 'none';
+    sidebar.style.display = display;
   }
   showSettings() {
     if (this.props.ui === "settings") {
