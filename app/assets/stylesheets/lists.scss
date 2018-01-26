@@ -1,3 +1,21 @@
+#list-create {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(239, 235, 235, 0.45);
+}
+#list-edit {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
+  background-color: rgba(239, 235, 235, 0.45);
+}
+#inbox, #lists {
+  display: block;
+}
 .lists-index {
   margin: 0 11px;
   font-family: sans-serif;

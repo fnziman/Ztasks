@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <container id="sidebar">
+    <div id="sidebar">
       <Link to="/app/all" className="logo">
         <p>Ztasks</p>
       </Link>
-      <ListIndexContainer/>
-    </container>
+      <ListIndexContainer />
+    </div>
   );
 };
 

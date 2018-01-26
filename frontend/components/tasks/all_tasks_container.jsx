@@ -12,7 +12,6 @@ const mapStateToProps = (state, ownProps) => {
     // currentTask: state.tasks[ownProps.match.params.taskId],
     // listId: null,
     // dueDate: null,
-    ui: state.ui,
     incomplete: incomplete,
     complete: complete,
     currentUser: state.session.currentUser,

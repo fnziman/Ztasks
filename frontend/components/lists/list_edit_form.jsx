@@ -1,10 +1,9 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class ListEditForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state={
       id: this.props.currentList.id,
       title: this.props.currentList.title,
@@ -16,25 +15,21 @@ class ListEditForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   close() {
-    this.props.clearUi();
-    // this.props.clearCurrentList();
+    this.props.history.push(`/app/list/${this.props.currentList.id}`);
   }
-
   updateTitle(e) {
     this.setState({ title: e.target.value });
   }
-
   handleSubmit(e) {
     e.preventDefault();
     const list = this.state;
     this.props.editList( list );
-    this.props.clearUi();
-    this.props.clearCurrentList();
+    this.props.history.push(`/app/list/${this.props.currentList.id}`);
   }
 
   render() {
     return (
-      <container className="flex-container">
+      <div id="list-edit">
         <span onClick={this.close} className="form-background"></span>
 
         <div className="list-edit-form">
@@ -50,7 +45,7 @@ class ListEditForm extends React.Component {
             <input onClick={this.close} type="button" className="cancel-button" defaultValue="Cancel" />
           </form>
         </div>
-      </container>
+      </div>
     );
   }
 }

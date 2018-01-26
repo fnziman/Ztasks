@@ -1,0 +1,16 @@
+#settings {
+  display: none;
+}
+.settings-dropdown {
+  font-family: sans-serif;
+  font-size: 13px;
+  display: block;
+  position: fixed;
+  right: 10px;
+  top: 40px;
+  background: white;
+  border-radius: 3px;
+  width: 200px;
+  box-shadow: 0 1px 4px 1px rgba(0,0,0,0.2);
+  z-index: 1000;
+}

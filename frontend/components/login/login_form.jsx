@@ -50,9 +50,9 @@ class LoginForm extends React.Component {
     return (
       <div className="container">
         <section className="blue">
-          <container className="auth-logo">
+          <div className="auth-logo">
             <p>Ztasks</p>
-          </container>
+          </div>
         </section>
         <div className="login-form-container">
           <br/>

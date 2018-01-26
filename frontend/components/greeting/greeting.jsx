@@ -6,9 +6,9 @@ class Greeting extends React.Component {
     return (
       <div className="greeting-container">
         <header className="greeting-header">
-          <container className="greeting-logo">
+          <div className="greeting-logo">
             <p>Ztasks</p>
-          </container>
+          </div>
           <div className="greeting-buttons">
             <Link className="greeting-button" to="/login">Log in</Link>
             <Link className="greeting-button" to="/signup">Sign up for free</Link>

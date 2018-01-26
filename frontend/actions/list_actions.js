@@ -4,7 +4,6 @@ export const RECEIVE_LISTS = "RECEIVE_LISTS";
 export const RECEIVE_SINGLE_LIST = "RECEIVE_SINGLE_LIST";
 export const REMOVE_LIST = "REMOVE_LIST";
 export const UPDATE_LIST = "UPDATE_LIST";
-export const RECEIVE_CURRENT_LIST = "RECEIVE_CURRENT_LIST";
 
 export const receiveLists = lists => {
   return {
@@ -18,22 +17,10 @@ export const receiveSingleList = list => {
     list
   };
 };
-// export const updateList = list => {
-//   return {
-//     type: UPDATE_LIST,
-//     list
-//   };
-// };
 export const removeList = list => {
   return {
     type: REMOVE_LIST,
     list
-  };
-};
-export const receiveCurrentList = currentList => {
-  return {
-    type: RECEIVE_CURRENT_LIST,
-    currentList
   };
 };
 
@@ -61,9 +48,3 @@ export const deleteList = (listId) => dispatch => {
       (list) => dispatch(removeList(list))
     );
 };
-export const setCurrentList = list => {
-  return receiveCurrentList(list);
-};
-// export const clearCurrentList = () => {
-//   return receiveCurrentList(null);
-// };

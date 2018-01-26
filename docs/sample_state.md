@@ -44,15 +44,6 @@
       }
     },
   },
-  ui: {
-    sidebar: true, //defaults to true
-    lists_dropdown: false, //defaults to false
-    settings: false, //settings drop down defaults to false
-    list_create_form: false,
-    list_edit_form: false,
-    // currentList ? is this necessary or can i find it from the path
-    // currentTask ? is this necessary or can i find it from the path
-  }
 }
 
 

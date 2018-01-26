@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { fetchTasks, createTask, editTask } from '../../actions/task_actions';
 import SearchedTasks from './searched_tasks';
-import { fetchTasks, createTask, editTask} from '../../actions/task_actions';
 import * as Selector from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,7 +14,6 @@ const mapStateToProps = (state, ownProps) => {
   const complete = Selector.complete(searchedTasks);
 
   return {
-    ui: state.ui,
     incomplete: incomplete,
     complete: complete,
     currentUser: state.session.currentUser,

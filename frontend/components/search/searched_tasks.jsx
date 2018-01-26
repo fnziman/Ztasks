@@ -7,23 +7,14 @@ class SearchedTasks extends React.Component {
     super(props);
     this.state = {
       title: '',
-      showing: "incomplete"
     };
 
-    this.showComplete = this.showComplete.bind(this);
-    this.showIncomplete = this.showIncomplete.bind(this);
-    this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateInput = this.updateInput.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchTasks();
-  }
-  showComplete() {
-    this.setState({ showing: "complete"});
-  }
-  showIncomplete() {
-    this.setState({ showing: "incomplete"});
   }
   updateInput(e) {
     this.setState({ title: e.target.value });
@@ -37,6 +28,23 @@ class SearchedTasks extends React.Component {
     this.setState({ title: "" });
     if (task.title !== '') {
       this.props.createTask(task);
+    }
+  }
+  toggleStatusList() {
+    const incomplete = document.getElementById('incomplete');
+    const complete = document.getElementById('complete');
+    const incompleteTasks = document.getElementById('incomplete-tasks');
+    const completeTasks = document.getElementById('complete-tasks');
+    if (incomplete.className === 'showing') {
+      incomplete.className = '';
+      complete.className = 'showing';
+      incompleteTasks.style.display = 'none';
+      completeTasks.style.display = 'block';
+    } else {
+      complete.className = '';
+      incomplete.className = 'showing';
+      completeTasks.style.display = 'none';
+      incompleteTasks.style.display = 'block';
     }
   }
 
@@ -63,16 +71,15 @@ class SearchedTasks extends React.Component {
       });
 
     return (
-      <container className="tasks-index">
+      <div className="tasks-index">
         <div className="tasks-choice">
-          <span onClick={this.showIncomplete}
-            className={this.state.showing === "incomplete" ? "showing" : ""}>Incomplete</span>
-          <span onClick={this.showComplete}
-            className={this.state.showing === "complete" ? "showing" : ""}>Completed</span>
+          <span id="incomplete" className="showing" onClick={this.toggleStatusList}>Incomplete</span>
+          <span id="complete" onClick={this.toggleStatusList}>Completed</span>
         </div>
         <div className="add-task">
           <form onSubmit={this.handleSubmit}>
-          <input className="add-task-input" type="text" onChange={this.updateInput} placeholder="Add a task..." value={this.state.title} />
+          <input className="add-task-input" type="text" onChange={this.updateInput}
+            placeholder="Add a task..." value={this.state.title} />
             <br/>
             <div className="add-task-options">
               <input type="button" />
@@ -80,16 +87,16 @@ class SearchedTasks extends React.Component {
             </div>
           </form>
         </div>
-        <div className={this.state.showing === "incomplete" ? "tasks view" : "hidden"}>
+        <div id="incomplete-tasks" className="tasks">
           {incomplete}
         </div>
-        <div className={this.state.showing === "complete" ? "tasks view crossed-out" : "hidden"}>
+        <div id="complete-tasks" className="tasks crossed-out">
           <ul>
             {complete}
           </ul>
         </div>
 
-      </container>
+      </div>
     );
   }
 }

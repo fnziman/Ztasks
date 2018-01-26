@@ -77,7 +77,7 @@
   color: black;
   outline: none;
 }
-.settings, .cloud, .notifications {
+.settings-button, .cloud, .notifications {
   display: flex;
   align-content: center;
   justify-content: center;
@@ -89,22 +89,9 @@
   position: relative;
   right: 20px;
 }
-.settings:hover, .cloud:hover, .notifications:hover {
+.settings-button:hover, .cloud:hover, .notifications:hover {
   background-color: rgba(0,0,0,0.15);
   color: white;
-}
-.settings-dropdown {
-  font-family: sans-serif;
-  font-size: 13px;
-  display: block;
-  position: fixed;
-  right: 10px;
-  top: 40px;
-  background: white;
-  border-radius: 3px;
-  width: 200px;
-  box-shadow: 0 1px 4px 1px rgba(0,0,0,0.2);
-  z-index: 1000;
 }
 .user {
   display: flex;

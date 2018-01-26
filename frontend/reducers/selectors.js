@@ -38,7 +38,7 @@ export const tomorrow = () => {
 };
 export const thisWeek = () => {
   let currentDate = new Date();
-  currentDate.setDate(currentDate.getDate() + 6); //set to tomorrow
+  currentDate.setDate(currentDate.getDate() + 6); //set to 'within week'
   let year = currentDate.getFullYear();
   let month = currentDate.getMonth();
   if (month < 10) {

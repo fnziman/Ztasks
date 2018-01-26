@@ -67,7 +67,7 @@ class TaskDetail extends React.Component {
 
   render() {
     return (
-      <container className="task-detail-container">
+      <div className="task-detail-container">
           <span onClick={this.handleSubmit} className="close">close &times;</span>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.update('title')} className="title" type="text" value={this.state.title}/>
@@ -90,7 +90,7 @@ class TaskDetail extends React.Component {
             <input type="button" className="delete-task" onClick={this.deleteTask} defaultValue="Delete" />
           </span>
         </form>
-      </container>
+      </div>
     );
   }
 }

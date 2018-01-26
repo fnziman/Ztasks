@@ -5,8 +5,6 @@ class Header extends React.Component {
     super(props);
     this.state = { search: '' };
 
-    this.showSettings = this.showSettings.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.search = this.search.bind(this);
   }
@@ -16,15 +14,9 @@ class Header extends React.Component {
     const display = style.display === 'none' ? 'flex' : 'none';
     sidebar.style.display = display;
   }
-  showSettings() {
-    if (this.props.ui === "settings") {
-      this.props.clearUi();
-    } else {
-      this.props.settingsDropdown();
-    }
-  }
-  handleLogout() {
-    this.props.logout(this.props.currentUser);
+  toggleSettings() {
+    const settings = document.getElementById('settings');
+    settings.style.display = 'flex';
   }
   updateSearch(e) {
     this.setState({ search: e.target.value });
@@ -36,25 +28,25 @@ class Header extends React.Component {
 
   render() {
     return (
-      <container className="header">
-        <container className="left-header-container">
+      <div className="header">
+        <div className="left-header-container">
           <i onClick={this.toggleSidebar} className="menu">menu</i>
-        </container>
-        <container className="middle-header-container">
+        </div>
+        <div className="middle-header-container">
           <div className="searchbar-container">
             <i className="search">search</i>
             <form onSubmit={this.search} className="searchbar">
               <input onChange={this.updateSearch} value={this.state.search}/>
             </form>
           </div>
-        </container>
-        <container className="right-header-container">
-          <div onClick={this.showSettings} className="settings">
+        </div>
+        <div className="right-header-container">
+          <div onClick={this.toggleSettings} className="settings-button">
             <i>settings</i>
             <i className="arrow">arrow_drop_down</i>
           </div>
-        </container>
-      </container>
+        </div>
+      </div>
     );
   }
 

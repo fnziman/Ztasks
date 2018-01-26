@@ -10,9 +10,9 @@ class SearchSummary extends React.Component {
     let completed = this.props.complete;
 
     return (
-      <container className="list-summary">
+      <div className="list-summary">
         <h1>Search</h1>
-        <container className="summary-items">
+        <div className="summary-items">
           <div className="summary-item total">
             {totalTasks.length}
             <p>tasks</p>
@@ -29,8 +29,8 @@ class SearchSummary extends React.Component {
             {completed.length}
             <p>completed</p>
           </div>
-        </container>
-      </container>
+        </div>
+      </div>
     );
   }
 }

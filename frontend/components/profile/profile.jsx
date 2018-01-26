@@ -11,13 +11,13 @@ class Profile extends React.Component {
       last_name: this.props.currentUser.last_name,
     };
 
-    this.close = this.close.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   close() {
-    this.props.clearUi();
+    const profile = document.getElementById('profile');
+    profile.style.display = 'none';
   }
   update(property) {
     return e => this.setState({
@@ -27,13 +27,13 @@ class Profile extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.close();
     this.props.editProfile(user);
+    this.close();
   }
 
   render() {
     return (
-      <continer className="flex-container">
+      <div id="profile">
         <span onClick={this.close} className="form-background"></span>
 
         <div className="profile-form">
@@ -55,7 +55,7 @@ class Profile extends React.Component {
             <input type="submit" className="save-change-button" defaultValue="Save changes" />
           </form>
         </div>
-      </continer>
+      </div>
     );
   }
 }

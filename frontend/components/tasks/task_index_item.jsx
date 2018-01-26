@@ -16,7 +16,7 @@ class TasksIndexItem extends React.Component {
 
   render() {
     return (
-      <container className="task">
+      <div className="task">
         <div>
           <div onClick={this.toggleCompleted} className="checkbox"></div>
         </div>
@@ -25,7 +25,7 @@ class TasksIndexItem extends React.Component {
             <div className="task-link">{this.props.task.title}</div>
           </Link>
         </div>
-      </container>
+      </div>
     );
   }
 }

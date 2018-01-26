@@ -14,7 +14,6 @@ const mapStateToProps = (state, ownProps) => {
   const complete = Selector.complete(searchedTasks);
 
   return {
-    ui: state.ui,
     incomplete: incomplete,
     complete: complete,
     currentUser: state.session.currentUser,
