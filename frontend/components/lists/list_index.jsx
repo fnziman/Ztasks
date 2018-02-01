@@ -1,6 +1,7 @@
 import React from 'react';
 import ListIndexItem from './list_index_item';
 import { withRouter, Link } from 'react-router-dom';
+import { listTasks } from '../../reducers/selectors';
 
 class ListIndex extends React.Component {
   constructor(props) {
@@ -34,9 +35,7 @@ class ListIndex extends React.Component {
         <ListIndexItem
           key={list.id}
           list={list}
-          numTasks={
-            this.props.allIncompleteTasks.filter(task => task.list_id === list.id).length
-          }
+          numTasks={listTasks(this.props.allIncompleteTasks, list.id).length}
           deleteList={this.props.deleteList}
         />
       );
