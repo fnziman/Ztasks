@@ -7,20 +7,19 @@ import * as Selector from '../../reducers/selectors';
 const mapStateToProps = (state, ownProps) => {
   const allTasks = Selector.TasksAsArray(state);
   const allIncompleteTasks = Selector.incomplete(allTasks);
-
   return {
-    tasks: allIncompleteTasks,
+    allIncompleteTasks,
+    numTasks: allIncompleteTasks.length,
     lists: Selector.ListsAsArray(state),
-    todayTasks: Selector.todayTasks(allIncompleteTasks),
-    tomorrowTasks: Selector.tomorrowTasks(allIncompleteTasks),
-    thisWeekTasks: Selector.thisWeekTasks(allIncompleteTasks),
+    numTodayTasks: Selector.todayTasks(allIncompleteTasks).length,
+    numTomorrowTasks: Selector.tomorrowTasks(allIncompleteTasks).length,
+    numThisWeekTasks: Selector.thisWeekTasks(allIncompleteTasks).length,
   };
 };
 
 const mapDispatchToProps =  dispatch => {
   return {
     fetchLists: () => dispatch(fetchLists()),
-    editList: listId => dispatch(editList(listId)),
     deleteList: listId => dispatch(deleteList(listId)),
   };
 };

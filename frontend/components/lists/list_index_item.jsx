@@ -29,7 +29,7 @@ class ListIndexItem extends React.Component {
         <Link to={`/app/list/${this.props.list.id}`} className="list-index-item">
           <span className="list-title">{this.props.list.title}</span>
           <span className="num-tasks">
-            {this.props.tasks.filter(task => task.list_id === this.props.list.id).length}
+            {this.props.numTasks}
           </span>
 
           <i onClick={this.open} className="arrow list-arrow">arrow_drop_down</i>

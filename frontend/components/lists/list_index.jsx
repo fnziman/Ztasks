@@ -6,7 +6,6 @@ class ListIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -28,9 +27,6 @@ class ListIndex extends React.Component {
     const create = document.getElementById('list-create');
     create.style.display = 'flex';
   }
-  handleDelete() {
-    this.props.deleteList(this.props.currentList.id);
-  }
 
   render() {
     const lists = this.props.lists.map(list => {
@@ -38,8 +34,9 @@ class ListIndex extends React.Component {
         <ListIndexItem
           key={list.id}
           list={list}
-          tasks={this.props.tasks}
-          editList={this.props.editList}
+          numTasks={
+            this.props.allIncompleteTasks.filter(task => task.list_id === list.id).length
+          }
           deleteList={this.props.deleteList}
         />
       );
@@ -54,16 +51,16 @@ class ListIndex extends React.Component {
           </div>
           <div id="inbox">
             <Link className="list-index-item" to="/app/all">All Tasks
-              <span className="num-tasks">{this.props.tasks.length}</span>
+              <span className="num-tasks">{this.props.numTasks}</span>
             </Link>
             <Link className="list-index-item" to="/app/today">Today
-              <span className="num-tasks">{this.props.todayTasks.length}</span>
+              <span className="num-tasks">{this.props.numTodayTasks}</span>
             </Link>
             <Link className="list-index-item" to="/app/tomorrow">Tomorrow
-              <span className="num-tasks">{this.props.tomorrowTasks.length}</span>
+              <span className="num-tasks">{this.props.numTomorrowTasks}</span>
             </Link>
             <Link className="list-index-item list-title" to="/app/this_week">This Week
-              <span className="num-tasks">{this.props.thisWeekTasks.length}</span>
+              <span className="num-tasks">{this.props.numThisWeekTasks}</span>
             </Link>
           </div>
         </div>
