@@ -35,18 +35,18 @@ class TasksIndex extends React.Component {
     }
   }
   toggleStatusList() {
-    const incomplete = document.getElementById('incomplete');
-    const complete = document.getElementById('complete');
+    const incompleteTab = document.getElementById('incomplete');
+    const completeTab = document.getElementById('complete');
     const incompleteTasks = document.getElementById('incomplete-tasks');
     const completeTasks = document.getElementById('complete-tasks');
-    if (incomplete.className === 'showing') {
-      incomplete.className = '';
-      complete.className = 'showing';
+    if (incompleteTab.className === 'showing') {
+      incompleteTab.className = '';
+      completeTab.className = 'showing';
       incompleteTasks.style.display = 'none';
       completeTasks.style.display = 'block';
     } else {
-      complete.className = '';
-      incomplete.className = 'showing';
+      completeTab.className = '';
+      incompleteTab.className = 'showing';
       completeTasks.style.display = 'none';
       incompleteTasks.style.display = 'block';
     }
@@ -90,7 +90,7 @@ class TasksIndex extends React.Component {
             </div>
           </form>
         </div>
-        <div id="incompete-tasks" className="tasks">
+        <div id="incomplete-tasks" className="tasks">
           {incomplete}
         </div>
         <div id="complete-tasks" className="tasks crossed-out">
