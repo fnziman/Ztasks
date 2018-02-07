@@ -17,12 +17,6 @@ import ProfileContainer from './profile/profile_container';
 import SettingsContainer from './settings/settings_container';
 
 class MainPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { nextProps: {}}; // TODO: what was I doing here?
-  }
-
   render() {
     return(
       <div className="main-page">
