@@ -17,6 +17,7 @@ import ProfileContainer from './profile/profile_container';
 import SettingsContainer from './settings/settings_container';
 
 class MainPage extends React.Component {
+
   render() {
     return(
       <div className="main-page">
