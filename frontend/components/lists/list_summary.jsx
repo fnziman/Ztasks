@@ -11,7 +11,7 @@ class ListSummary extends React.Component {
   }
   componentWillReceiveProps() {
     if (this.props.currentList) {
-      this.setState({ listName: this.props.currentList });
+      this.setState({ listName: this.props.currentList.title });
     } else {
       this.setState({ listName: this.props.location.pathname.split('/').slice(-1)[0]});
     }
