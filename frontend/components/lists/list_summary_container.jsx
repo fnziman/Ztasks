@@ -5,16 +5,18 @@ import * as Selector from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const allTasks = Selector.TasksAsArray(state);
+  const completeTasks = Selector.complete(allTasks);
+  const incompleteTasks = Selector.incomplete(allTasks);
   return {
     currentList: state.lists[ownProps.match.params.listId],
-    allTasksIncomplete: Selector.incomplete(allTasks),
-    allTasksComplete: Selector.complete(allTasks),
-    todayTasksIncomplete: Selector.todayTasks(allTasks).filter(task => !task.completed),
-    todayTasksComplete: Selector.todayTasks(allTasks).filter(task => task.completed),
-    tomorrowTasksIncomplete: Selector.tomorrowTasks(allTasks).filter(task => !task.completed),
-    tomorrowTasksComplete: Selector.tomorrowTasks(allTasks).filter(task => task.completed),
-    thisWeekTasksIncomplete: Selector.thisWeekTasks(allTasks).filter(task => !task.completed),
-    thisWeekTasksComplete: Selector.thisWeekTasks(allTasks).filter(task => task.completed),
+    allTasksIncomplete: incompleteTasks,
+    allTasksComplete: completeTasks,
+    todayTasksIncomplete: Selector.todayTasks(incompleteTasks),
+    todayTasksComplete: Selector.todayTasks(completeTasks),
+    tomorrowTasksIncomplete: Selector.tomorrowTasks(incompleteTasks),
+    tomorrowTasksComplete: Selector.tomorrowTasks(completeTasks),
+    thisWeekTasksIncomplete: Selector.thisWeekTasks(incompleteTasks),
+    thisWeekTasksComplete: Selector.thisWeekTasks(completeTasks),
   };
 };
 

@@ -2,10 +2,22 @@ import React from 'react';
 import * as Selector from '../../reducers/selectors';
 
 class ListSummary extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      listName: ''
+    };
+  }
+  componentWillReceiveProps() {
+    if (this.props.currentList) {
+      this.setState({ listName: this.props.currentList });
+    } else {
+      this.setState({ listName: this.props.location.pathname.split('/').slice(-1)[0]});
+    }
+  }
   render() {
-
-    let listName = this.props.location.pathname.split('/').slice(-1)[0];
+    let listName = this.state.listName;
     let totalTasks = [];
     let dueToday = [];
     let dueTomorrow = [];
@@ -27,10 +39,10 @@ class ListSummary extends React.Component {
       case "tomorrow":
         totalTasks = this.props.tomorrowTasksIncomplete;
         dueTomorrow = this.props.tomorrowTasksIncomplete;
-        completed = this.props.todayTasksComplete;
+        completed = this.props.tomorrowTasksComplete;
         break;
       case "this_week":
-        listName = "This Week";
+        listName = "this week";
         totalTasks = this.props.thisWeekTasksIncomplete;
         dueToday = this.props.todayTasksIncomplete;
         dueTomorrow = this.props.tomorrowTasksIncomplete;
