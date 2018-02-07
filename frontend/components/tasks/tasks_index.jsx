@@ -7,8 +7,6 @@ class TasksIndex extends React.Component {
     super(props);
     this.state = {
       title: '',
-      dueDate: this.props.dueDate,
-      showing: "incomplete"
     };
 
     this.updateInput = this.updateInput.bind(this);

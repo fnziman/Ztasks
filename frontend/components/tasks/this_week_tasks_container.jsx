@@ -4,15 +4,12 @@ import TasksIndex from './tasks_index';
 import { fetchTasks, createTask, editTask } from '../../actions/task_actions';
 import * as Selector from '../../reducers/selectors';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const allTasks = Selector.TasksAsArray(state);
-  const thisWeek = Selector.thisWeek();
   const thisWeekTasks = Selector.thisWeekTasks(allTasks);
   const complete = Selector.complete(thisWeekTasks);
   const incomplete = Selector.incomplete(thisWeekTasks);
   return {
-    // listId: null,
-    // dueDate: null,
     complete: complete,
     incomplete: incomplete,
     currentUser: state.session.currentUser,

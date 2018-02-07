@@ -9,9 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   const complete = Selector.complete(allTasks);
   const incomplete = Selector.incomplete(allTasks);
   return {
-    // currentTask: state.tasks[ownProps.match.params.taskId],
-    // listId: null,
-    // dueDate: null,
     incomplete: incomplete,
     complete: complete,
     currentUser: state.session.currentUser,

@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
   const complete = Selector.complete(todayTasks);
   const incomplete = Selector.incomplete(todayTasks);
   return {
-    // listId: null,
     dueDate: today,
     complete: complete,
     incomplete: incomplete,
