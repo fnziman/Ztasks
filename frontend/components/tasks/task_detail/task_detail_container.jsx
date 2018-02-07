@@ -2,24 +2,21 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TaskDetail from './task_detail';
 import { ListsAsArray } from '../../../reducers/selectors';
-import {
-  setCurrentTask,
-  editTask,
-  deleteTask
-} from '../../../actions/task_actions';
+import { editTask, deleteTask } from '../../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  const taskId = ownProps.match.params.taskId;
+  const currentTask = state.tasks[taskId];
   return {
-    currentTask: state.tasks[ownProps.match.params.taskId],
-    taskId: ownProps.match.params.taskId,
+    currentTask: currentTask,
+    taskId: taskId,
     lists: ListsAsArray(state),
-    listId: ownProps.match.params.listId,
+    listId: currentTask.list_id,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setCurrentTask: (taskId) => dispatch(setCurrentTask(taskId)),
     editTask: (task) => dispatch(editTask(task)),
     deleteTask: (task) => dispatch(deleteTask(task)),
   };

@@ -21,22 +21,21 @@ class TaskDetail extends React.Component {
   componentDidMount() {
     this.setState({
       id: this.props.currentTask.id,
-      title: this.props.currentTask.title,
-      due_date: this.props.currentTask.due_date,
-      list_id: this.props.currentTask.list_id,
-      time_estimate: this.props.currentTask.time_estimate === null ? "none" : this.props.currentTask.time_estimate,
-      notes: this.props.currentTask.notes,
+      title: this.props.currentTask.title || '',
+      due_date: this.props.currentTask.due_date || '',
+      list_id: this.props.currentTask.list_id || '',
+      time_estimate: this.props.currentTask.time_estimate || '',
+      notes: this.props.currentTask.notes || '',
     });
   }
   componentWillReceiveProps(nextProps) {
-
     this.setState({
       id: nextProps.currentTask.id,
-      title: nextProps.currentTask.title,
-      due_date: nextProps.currentTask.due_date,
-      list_id: nextProps.currentTask.list_id,
-      time_estimate: nextProps.currentTask.time_estimate === null ? "none" : nextProps.currentTask.time_estimate,
-      notes: nextProps.currentTask.notes,
+      title: nextProps.currentTask.title || '',
+      due_date: nextProps.currentTask.due_date || '',
+      list_id: nextProps.currentTask.list_id || '',
+      time_estimate: nextProps.currentTask.time_estimate || '',
+      notes: nextProps.currentTask.notes || '',
     });
   }
   update(property) {
@@ -48,7 +47,7 @@ class TaskDetail extends React.Component {
     return this.props.lists.map(list => {
       return (
         <option
-          key={list.id} value={list.id} selected={list.id === this.state.list_id ? true : false}>
+          key={list.id} value={list.id} >
           {list.title}
         </option>
       );
@@ -68,17 +67,17 @@ class TaskDetail extends React.Component {
   render() {
     return (
       <div className="task-detail-container">
-          <span onClick={this.handleSubmit} className="close">close &times;</span>
+        <span onClick={this.handleSubmit} className="close">close &times;</span>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.update('title')} className="title" type="text" value={this.state.title}/>
           <label className="date">due
             <input onChange={this.update('due_date')}type="date" value={this.state.due_date}/>
           </label>
           <label className="list">list
-              <select onChange={this.update('list_id')}>
-                <option value={0}>None</option>
-                {this.lists()}
-              </select>
+            <select value={this.state.list_id} onChange={this.update('list_id')}>
+              <option value={0}>None</option>
+              {this.lists()}
+            </select>
           </label>
           <label className="time-estimate">time estimate
             <input onChange={this.update('time_estimate')}type="text" value={this.state.time_estimate}/>
